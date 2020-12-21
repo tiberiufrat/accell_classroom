@@ -1,0 +1,25 @@
+<section class="section">
+  <div class="section-header d-mobile-none">
+    <h1>Youtube Videos</h1>
+    <div class="section-header-breadcrumb">
+      <div class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></div>
+      <div class="breadcrumb-item"><%= link_to 'Youtube Videos', youtube_videos_path %></div>
+      <div class="breadcrumb-item">Editing Youtube Video</div>
+    </div>
+  </div>
+  <div class="section-body">
+    <div class="card">
+      <div class="card-header">
+        <h4>Editing Youtube Video</h4>
+      </div>
+      <div class="card-body">
+        <%= render 'form', youtube_video: @youtube_video %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= link_to icon('fas fa-eye', 'Show'), @youtube_video, class: 'btn btn-icon icon-left btn-info' %>
+<%= link_to icon('fas fa-arrow-left', 'Back'), youtube_videos_path, class: 'btn btn-icon icon-left btn-secondary d-mobile-none' %>
+
+<% content_for(:page_title, 'Editing Youtube Video') %>

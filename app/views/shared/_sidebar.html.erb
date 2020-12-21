@@ -9,7 +9,13 @@
     <ul class="sidebar-menu" data-controller="sidebar">
       <li class="<%= active_nav_item('home', 'index') %>">
         <%= link_to root_path, class: "nav-link" do %>
-          <i class="fas fa-fire"></i> <span>Dashboard</span>
+          <i class="fas fa-columns"></i> <span><%= t('home.index.title') %></span>
+        <% end %>
+      </li>
+
+      <li class="<%= active_nav_item('courses', 'index') %>">
+        <%= link_to courses_path, class: "nav-link" do %>
+          <i class="fas fa-users-class"></i> <span><%= t('courses.index.title') %></span>
         <% end %>
       </li>
 

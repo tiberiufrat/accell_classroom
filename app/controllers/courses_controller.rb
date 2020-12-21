@@ -2,12 +2,13 @@ class CoursesController < ApplicationController
   before_action :set_course, only: %i[ show edit update destroy ]
 
   def index
-    @search = Course.reverse_chronologically.ransack(params[:q])
-
-    respond_to do |format|
-      format.any(:html, :json) { @courses = set_page_and_extract_portion_from @search.result }
-      format.csv { render csv: @search.result }
-    end
+    # @search = Course.reverse_chronologically.ransack(params[:q])
+    #
+    # respond_to do |format|
+    #   format.any(:html, :json) { @courses = set_page_and_extract_portion_from @search.result }
+    #   format.csv { render csv: @search.result }
+    # end
+    @courses = Course.all
   end
 
   def show
@@ -15,7 +16,7 @@ class CoursesController < ApplicationController
   end
 
   def new
-    @course = Course.new
+    @course = Course.where(user: current_user)
   end
 
   def edit
@@ -53,6 +54,6 @@ class CoursesController < ApplicationController
     end
 
     def course_params
-      params.require(:course).permit(:classroom_id, :name, :section, :description, :creation_time, :enrollment_code, :course_state, :link)
+      params.require(:course).permit(:classroom_id, :name, :section, :description, :creation_time, :enrollment_code, :course_state, :link, :user_id)
     end
 end

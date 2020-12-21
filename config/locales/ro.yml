@@ -3,6 +3,27 @@ ro:
     search: Caută
     log_in: Autentificare
     log_in_google: Autentificare cu Google
+    export_data: Exportă datele
+    print_page: Tipărește pagina
+    go_to: Accesează
+    created_at: Creat pe
+  home:
+    index:
+      title: Panou de control
+      welcome: Bine ați venit
+      unauth_lead: Autentificați-vă acum pentru a avea acces la cursurile dumneavoastră.
+      auth_lead: Accesați resursele din bara laterală sau efectuați o căutare.
+  courses:
+    index:
+      title: Lista cursurilor
+      add: Adaugă un curs
+    status:
+      active: Activ
+      archived: Arhivat
+      provisioned: Neactivat
+      declined: Respins
+      suspended: Suspendat
+      unknown: Necunoscut
   attributes:
     name: Nume
     grade: Clasă
@@ -17,29 +38,13 @@ ro:
     stand: Stand
     event: Eveniment
     admin: Creator
+    user: Utilizator
+    code: Cod
   activerecord:
     models:
-      admin:
-        one: Administrator
-        other: Administratori
-      student:
-        one: Elev
-        other: Elevi
-      grade:
-        one: Clasă
-        other: Clase
-      product:
-        one: Produs
-        other: Produse
-      stand:
-        one: Stand
-        other: Standuri
-      volunteer:
-        one: Voluntar
-        other: Voluntari
-      event:
-        one: Eveniment
-        other: Evenimente
+      course:
+        one: Curs
+        other: Cursuri
     attributes:
       admin:
         password: Parola
@@ -56,6 +61,9 @@ ro:
     errors:
       messages:
         record_invalid: Validare nereușită %{errors}
+      restrict_dependent_destroy:
+          has_one: Nu se poate șterge elementul deoarece există un %{record} dependent de acesta.
+          has_many: Nu se poate șterge elementul deoarece există unul sau mai multe %{record} dependente de acesta.
   date:
     abbr_day_names:
     - dum

@@ -6,10 +6,6 @@ class OmniauthController < Devise::OmniauthCallbacksController
     # byebug
     @user = User.create_from_provider_data(request.env['omniauth.auth'])
     @auth = request.env['omniauth.auth']['credentials']
-    Token.create(
-      access_token: @auth['token'],
-      refresh_token: @auth['refresh_token'],
-      expires_at: Time.at(@auth['expires_at']).to_datetime)
     if @user.persisted?
       sign_in_and_redirect @user
       set_flash_message(:notice, :success, kind: 'Google') if is_navigational_format?

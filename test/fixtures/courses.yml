@@ -5,17 +5,19 @@ one:
   name: MyString
   section: MyString
   description: MyString
-  creation_time: 2020-12-21 19:31:38
+  creation_time: 2020-12-21 19:45:52
   enrollment_code: MyString
   course_state: MyString
   link: MyString
+  user: one
 
 two:
   classroom_id: MyString
   name: MyString
   section: MyString
   description: MyString
-  creation_time: 2020-12-21 19:31:38
+  creation_time: 2020-12-21 19:45:52
   enrollment_code: MyString
   course_state: MyString
   link: MyString
+  user: two

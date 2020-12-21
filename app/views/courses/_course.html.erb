@@ -1,0 +1,32 @@
+<div class="card card-primary">
+  <div class="card-header">
+    <h4><%= course.name %></h4>
+    <div class="card-header-action">
+      <a href="<%= course.link %>" class="btn btn-primary">
+        <%= t('general.go_to') %>
+      </a>
+    </div>
+  </div>
+  <div class="card-body">
+    <div>
+      <% case course.course_state
+         when "ACTIVE" %>
+        <span class="badge badge-success"><%= t('courses.status.active') %></span>
+      <% when "ARCHIVED" %>
+        <span class="badge badge-warning"><%= t('courses.status.archived') %></span>
+      <% when "PROVISIONED" %>
+        <span class="badge badge-light"><%= t('courses.status.provisioned') %></span>
+      <% when "DECLINED" %>
+        <span class="badge badge-danger"><%= t('courses.status.declined') %></span>
+      <% when "SUSPENDED" %>
+        <span class="badge badge-secondary"><%= t('courses.status.suspended') %></span>
+      <% else %>
+        <span class="badge badge-dark"><%= t('courses.status.unknown') %></span>
+      <% end %>
+      <span class="badge badge-info"><%= t('attributes.code') %>: <code style="color: white; font-size: 110%;"><%= course.enrollment_code.upcase %></code></span>
+    </div>
+  </div>
+  <div class="card-footer bg-whitesmoke">
+    <%= t('general.created_at') %> <%= l course.creation_time, format: "%-d %B %Y" %>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  classroom_id: MyString
+  title: MyString
+  description: MyString
+  materials: MyString
+  creation_time: 2020-12-21 22:01:00
+  due_date: 2020-12-21 22:01:00
+  work_type: MyString
+  all_students: false
+  course: one
+
+two:
+  classroom_id: MyString
+  title: MyString
+  description: MyString
+  materials: MyString
+  creation_time: 2020-12-21 22:01:00
+  due_date: 2020-12-21 22:01:00
+  work_type: MyString
+  all_students: false
+  course: two

@@ -1,6 +1,13 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :course_works
+  resources :course_work_materials
+  resources :announcements
+  resources :forms
+  resources :links
+  resources :youtube_videos
+  resources :drive_files
   resources :courses
   # get '/oauth', to: 'oauth#authorize'
   # get '/oauth2callback', to: 'oauth#callback'

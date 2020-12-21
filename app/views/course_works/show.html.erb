@@ -1,0 +1,45 @@
+<section class="section">
+  <div class="section-header d-mobile-none">
+    <h1>Course Works</h1>
+    <div class="section-header-breadcrumb">
+      <div class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></div>
+      <div class="breadcrumb-item"><%= link_to 'Course Works', course_works_path %></div>
+      <div class="breadcrumb-item">Show Course Work</div>
+    </div>
+  </div>
+
+  <div class="section-body">
+    <div class="card">
+      <div class="card-header">
+        <h4>Show Course Work</h4>
+      </div>
+      <div class="card-body">
+        <dl class="row">
+          <dt class="col-sm-3">Classroom:</dt>
+          <dd class="col-sm-9"><%= @course_work.classroom_id %></dd>
+          <dt class="col-sm-3">Title:</dt>
+          <dd class="col-sm-9"><%= @course_work.title %></dd>
+          <dt class="col-sm-3">Description:</dt>
+          <dd class="col-sm-9"><%= @course_work.description %></dd>
+          <dt class="col-sm-3">Materials:</dt>
+          <dd class="col-sm-9"><%= @course_work.materials %></dd>
+          <dt class="col-sm-3">Creation time:</dt>
+          <dd class="col-sm-9"><%= l(@course_work.creation_time) %></dd>
+          <dt class="col-sm-3">Due date:</dt>
+          <dd class="col-sm-9"><%= l(@course_work.due_date) %></dd>
+          <dt class="col-sm-3">Work type:</dt>
+          <dd class="col-sm-9"><%= @course_work.work_type %></dd>
+          <dt class="col-sm-3">All students:</dt>
+          <dd class="col-sm-9"><%= t(@course_work.all_students) %></dd>
+          <dt class="col-sm-3">Course:</dt>
+          <dd class="col-sm-9"><%= @course_work.course %></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= link_to icon('fas fa-edit', 'Edit'), edit_course_work_path(@course_work), class: 'btn btn btn-icon icon-left btn-warning' %>
+<%= link_to icon('fas fa-arrow-left', 'Back'), course_works_path, class: 'btn btn-icon icon-left btn-secondary d-mobile-none' %>
+
+<% content_for(:page_title, 'Show Course Work') %>

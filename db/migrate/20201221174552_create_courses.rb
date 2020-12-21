@@ -9,6 +9,7 @@ class CreateCourses < ActiveRecord::Migration[6.1]
       t.string :enrollment_code
       t.string :course_state
       t.string :link
+      t.references :user, null: false, foreign_key: {to_table: :users}
 
       t.timestamps
     end

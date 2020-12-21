@@ -1,9 +1,30 @@
 <section class="section">
   <div class="section-header d-mobile-none">
-    <h1>Dashboard</h1>
+    <h1><%= t('.title') %></h1>
   </div>
-  <h1>Home#index</h1>
-  <p class="lead">Find me in app/views/home/index.html.erb</p>
+  <% unless user_signed_in? %>
+    <div class="hero align-items-center bg-info text-white">
+      <div class="hero-inner text-center">
+        <h2><%= t('.welcome') %></h2>
+        <p class="lead"><%= t('.unauth_lead') %></p>
+        <div class="mt-4">
+          <%= link_to icon("fab fa-google", " " + t('general.log_in_google')), omniauth_authorize_path(:user, :google_oauth2), class: "btn btn-outline-white btn-lg btn-icon icon-left" %>
+        </div>
+      </div>
+    </div>
+
+  <% else %>
+    <div class="hero text-white hero-bg-image hero-bg-parallax mb-4" style="background-image: url('<%= image_path "unsplash/andre-benz-1214056-unsplash.jpg" %>');">
+      <div class="hero-inner">
+        <h2><%= t('.welcome') %>, <%= current_user.name %>!</h2>
+        <p class="lead"><%= t('.auth_lead') %></p>
+        <div class="mt-4">
+          <%= link_to(icon('fas fa-user-circle', ' Vezi contul tău'), "#", class: "btn btn-outline-white btn-lg btn-icon icon-left") %>
+          <%= link_to(icon('fas fa-user-edit', ' Modifică detaliile contului'), "#", class: "btn btn-outline-white btn-lg btn-icon icon-left") %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </section>
 
-<% content_for(:page_title, 'Dashboard') %>
+<% content_for(:page_title, t('.title')) %>
