@@ -1,0 +1,43 @@
+<section class="section">
+  <div class="section-header d-mobile-none">
+    <h1>Courses</h1>
+    <div class="section-header-breadcrumb">
+      <div class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></div>
+      <div class="breadcrumb-item"><%= link_to 'Courses', courses_path %></div>
+      <div class="breadcrumb-item">Show Course</div>
+    </div>
+  </div>
+
+  <div class="section-body">
+    <div class="card">
+      <div class="card-header">
+        <h4>Show Course</h4>
+      </div>
+      <div class="card-body">
+        <dl class="row">
+          <dt class="col-sm-3">Classroom:</dt>
+          <dd class="col-sm-9"><%= @course.classroom_id %></dd>
+          <dt class="col-sm-3">Name:</dt>
+          <dd class="col-sm-9"><%= @course.name %></dd>
+          <dt class="col-sm-3">Section:</dt>
+          <dd class="col-sm-9"><%= @course.section %></dd>
+          <dt class="col-sm-3">Description:</dt>
+          <dd class="col-sm-9"><%= @course.description %></dd>
+          <dt class="col-sm-3">Creation time:</dt>
+          <dd class="col-sm-9"><%= l(@course.creation_time) %></dd>
+          <dt class="col-sm-3">Enrollment code:</dt>
+          <dd class="col-sm-9"><%= @course.enrollment_code %></dd>
+          <dt class="col-sm-3">Course state:</dt>
+          <dd class="col-sm-9"><%= @course.course_state %></dd>
+          <dt class="col-sm-3">Link:</dt>
+          <dd class="col-sm-9"><%= @course.link %></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= link_to icon('fas fa-edit', 'Edit'), edit_course_path(@course), class: 'btn btn btn-icon icon-left btn-warning' %>
+<%= link_to icon('fas fa-arrow-left', 'Back'), courses_path, class: 'btn btn-icon icon-left btn-secondary d-mobile-none' %>
+
+<% content_for(:page_title, 'Show Course') %>

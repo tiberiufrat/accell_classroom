@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :courses
   # get '/oauth', to: 'oauth#authorize'
   # get '/oauth2callback', to: 'oauth#callback'
   get '/redirect', to: 'oauth#redirect', as: 'redirect'
