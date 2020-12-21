@@ -25,8 +25,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'activerecord-session_store'
 gem 'devise'
 gem 'google-api-client'
+gem 'googleauth'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'signet'
 
 gem 'i18n', '~> 1.8', '>= 1.8.5'
 

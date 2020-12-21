@@ -30,6 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  general:
+    search: Search
+    log_in: Log in
+    log_in_google: Log in with Google
   hello: "Hello world"
 
 # Custom formats
