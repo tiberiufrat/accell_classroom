@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.7.2",
+    "@nguyenthanh1995/fontawesomepro": "^0.0.3",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
@@ -15,6 +16,7 @@
     "popper.js": "^1.16.1",
     "select2": "^4.0.7-rc.0",
     "stimulus": "^2.0.0",
+    "sweetalert2": "^10.12.5",
     "turbolinks": "^5.2.0",
     "waypoints": "^4.0.1"
   },

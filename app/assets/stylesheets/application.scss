@@ -20,6 +20,14 @@
  *= stub mobile
  *= require_self
  */
+$fa-font-path: '@nguyenthanh1995/fontawesomepro/webfonts';
+@import '@nguyenthanh1995/fontawesomepro/scss/fontawesome';
+@import '@nguyenthanh1995/fontawesomepro/scss/solid';
+@import '@nguyenthanh1995/fontawesomepro/scss/regular';
+@import '@nguyenthanh1995/fontawesomepro/scss/brands';
+@import '@nguyenthanh1995/fontawesomepro/scss/light';
+@import '@nguyenthanh1995/fontawesomepro/scss/duotone';
+@import '@nguyenthanh1995/fontawesomepro/scss/v4-shims';
 
 .turbolinks-progress-bar {
   background-color: #fd7e14;

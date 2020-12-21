@@ -31,7 +31,13 @@ class OauthController < ApplicationController
     service.authorization = client
 
     @course_list = service.list_courses page_size: 10
-    puts @course_list
+    @course_list.to_h[:courses].each { |course| puts course[:id] }
+  rescue Google::Apis::AuthorizationError
+    response = client.refresh!
+
+    session[:authorization] = session[:authorization].merge(response)
+
+    retry
   end
 
   private
