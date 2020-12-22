@@ -69,13 +69,11 @@
           </table> #>
           <#= link_to 'Next page', courses_path(page: @page.next_number, q: request.params[:q]), data: { target: 'infinite-page.more' } unless @page.last? #>
         </div> -->
-        <div class="">
-          <div class="row">
-            <div class="col-12 col-md-6 col-lg-4">
-              <% @courses.each do |course| %>
-                <%= render course %>
-              <% end %>
-            </div>
+        <div class="row" style="margin: 0">
+          <div class="card-columns">
+            <% @courses.each do |course| %>
+              <%= render course %>
+            <% end %>
           </div>
         </div>
       </div>

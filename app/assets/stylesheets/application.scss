@@ -20,6 +20,7 @@
  *= stub mobile
  *= require_self
  */
+ @import "bootstrap/scss/bootstrap-grid.scss";
 $fa-font-path: '@nguyenthanh1995/fontawesomepro/webfonts';
 @import '@nguyenthanh1995/fontawesomepro/scss/fontawesome';
 @import '@nguyenthanh1995/fontawesomepro/scss/solid';
@@ -76,3 +77,21 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 /** HIDE-SPINNERS-END **/
+
+.card-columns {
+  @include media-breakpoint-only(xs) {
+    column-count: 1;
+  }
+  @include media-breakpoint-only(sm) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(md) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(lg) {
+    column-count: 3;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 4;
+  }
+}
