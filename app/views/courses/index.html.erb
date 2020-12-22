@@ -20,62 +20,34 @@
         </div>
       </div>
       <div class="card-body" data-controller="infinite-page">
-        <!--
-        <#= search_form_for @search, remote: true, data: { controller: 'turbolinks-form' }, html: { class: 'form-row' } do |f| #>
-          <div class="form-group col-sm-10">
-            <#= f.text_field :name_cont, class: 'form-control m-input m-input--solid', placeholder: 'Name' #>
+        <% if current_user.courses.any? %>
+          <div class="row" style="margin: 0">
+            <div class="card-columns">
+              <% @courses.each do |course| %>
+                <%= render course %>
+              <% end %>
+            </div>
           </div>
-          <div class="form-group col-sm-2 text-right">
-            <#= f.button icon('fas fa-search', 'Search'), name: nil, class: 'btn btn-icon icon-left btn-primary' #>
+        <% else %>
+          <div class="card">
+            <div class="card-header">
+              <h4>Nu aveți niciun curs</h4>
+            </div>
+            <div class="card-body">
+              <div class="empty-state" data-height="400" style="height: 400px;">
+                <div class="empty-state-icon">
+                  <i class="fas fa-question"></i>
+                </div>
+                <h2><%= t('home.index.no_courses') %></h2>
+                <p class="lead">
+                  <%= t('home.index.unimported_lead') %>
+                </p>
+                <%= link_to icon('fa fa-cloud-upload', ' Importați-vă cursurile'), redirect_path, class: "btn btn-primary mt-4 btn-icon icon-left" %>
+                <a class="mt-4 bb" style="cursor: pointer" onclick="Swal.fire({title: 'Ajutor', html: 'Apăsați pe „Importați-vă cursurile”. Selectați contul dumneavoastră <strong>de școală</strong> și apăsați pe „Permiteți” atunci când sunteți întrebați.', icon: 'info'})"><%= t('general.help') %>?</a>
+              </div>
+            </div>
           </div>
-        <# end #>
-        -->
-        <!-- <div class="table-responsive">
-          <table class="table table-striped table-md">
-            <thead>
-              <tr>
-                <th><#= sort_link_turbo(@search, :classroom_id) #></th>
-                <th><#= sort_link_turbo(@search, :name) #></th>
-                <th><#= sort_link_turbo(@search, :section) #></th>
-                <th><#= sort_link_turbo(@search, :description) #></th>
-                <th><#= sort_link_turbo(@search, :creation_time) #></th>
-                <th><#= sort_link_turbo(@search, :enrollment_code) #></th>
-                <th><#= sort_link_turbo(@search, :course_state) #></th>
-                <th><#= sort_link_turbo(@search, :link) #></th>
-                <th><#= sort_link_turbo(@search, :user) #></th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody data-target="infinite-page.container">
-              <# @courses.each do |course| #>
-                <tr data-target="infinite-page.item">
-                  <td><#= course.classroom_id #></td>
-                  <td><#= course.name #></td>
-                  <td><#= course.section #></td>
-                  <td><#= course.description #></td>
-                  <td><#= l(course.creation_time) #></td>
-                  <td><#= course.enrollment_code #></td>
-                  <td><#= course.course_state #></td>
-                  <td><#= course.link #></td>
-                  <td><#= course.user #></td>
-                  <td>
-                    <#= link_to icon('fas fa-eye'), course, title: 'Show it', class: 'btn btn-icon btn-sm btn-info mr-1' #>
-                    <#= link_to icon('fas fa-edit'), edit_course_path(course), title: 'Edit it', class: 'btn btn-icon btn-sm btn-warning mr-1' #>
-                    <#= link_to icon('fas fa-trash'), course, title: 'Destroy it', class: 'btn btn-icon btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?', remote: true } #>
-                  </td>
-                </tr>
-              <# end #>
-            </tbody>
-          </table> #>
-          <#= link_to 'Next page', courses_path(page: @page.next_number, q: request.params[:q]), data: { target: 'infinite-page.more' } unless @page.last? #>
-        </div> -->
-        <div class="row" style="margin: 0">
-          <div class="card-columns">
-            <% @courses.each do |course| %>
-              <%= render course %>
-            <% end %>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

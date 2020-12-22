@@ -14,12 +14,11 @@ const jquery = require("jquery")
 const descriptor = { value: jquery, writable: false, configurable: false }
 Object.defineProperties(window, { $: descriptor, jQuery: descriptor })
 
-import Swal from 'sweetalert2'
-import './timeago'
-
 // App libraries
 require("bootstrap")
 require("jquery.nicescroll")
+
+import './timeago';
 
 require("select2")
 require("cleave.js")

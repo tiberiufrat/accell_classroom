@@ -14,13 +14,27 @@
     </div>
 
   <% else %>
+    <% if current_user.courses.none? %>
+      <div class="hero align-items-center bg-primary text-white mb-3">
+        <div class="hero-inner text-center">
+          <h2><%= t('.no_courses') %></h2>
+          <p class="lead"><%= t('.unimported_lead') %></p>
+          <div class="mt-4">
+            <%= link_to icon('fa fa-cloud-upload', ' ' + t('.no_courses')), redirect_path, class: "btn btn-outline-white btn-lg btn-icon icon-left" %>
+            <a class="btn btn-outline-white btn-lg btn-icon icon-left" style="cursor: pointer" onclick="Swal.fire({title: 'Ajutor', html: 'Apăsați pe „Importați-vă cursurile”. Selectați contul dumneavoastră <strong>de școală</strong> și apăsați pe „Permiteți” atunci când sunteți întrebați.', icon: 'info'})">
+              <span><i class="fa fa-info"></i><span> <%= t('general.help') %></span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    <% end %>
     <div class="hero text-white hero-bg-image hero-bg-parallax mb-4" style="background-image: url('<%= image_path "unsplash/andre-benz-1214056-unsplash.jpg" %>');">
       <div class="hero-inner">
         <h2><%= t('.welcome') %>, <%= current_user.name %>!</h2>
         <p class="lead"><%= t('.auth_lead') %></p>
         <div class="mt-4">
           <%= link_to(icon('fas fa-user-circle', ' Vezi contul tău'), "#", class: "btn btn-outline-white btn-lg btn-icon icon-left") %>
-          <%= link_to(icon('fas fa-user-edit', ' Modifică detaliile contului'), "#", class: "btn btn-outline-white btn-lg btn-icon icon-left") %>
+          <%= link_to(icon('fas fa-file-chart-line', ' Vezi rapoartele tale'), "#", class: "btn btn-outline-white btn-lg btn-icon icon-left") %>
         </div>
       </div>
     </div>
