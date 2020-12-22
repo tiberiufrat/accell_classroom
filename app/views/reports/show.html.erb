@@ -1,0 +1,33 @@
+<section class="section">
+  <div class="section-header d-mobile-none">
+    <h1>Reports</h1>
+    <div class="section-header-breadcrumb">
+      <div class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></div>
+      <div class="breadcrumb-item"><%= link_to 'Reports', reports_path %></div>
+      <div class="breadcrumb-item">Show Report</div>
+    </div>
+  </div>
+
+  <div class="section-body">
+    <div class="card">
+      <div class="card-header">
+        <h4>Show Report</h4>
+      </div>
+      <div class="card-body">
+        <dl class="row">
+          <dt class="col-sm-3">Date start:</dt>
+          <dd class="col-sm-9"><%= l(@report.date_start) %></dd>
+          <dt class="col-sm-3">Date end:</dt>
+          <dd class="col-sm-9"><%= l(@report.date_end) %></dd>
+          <dt class="col-sm-3">User:</dt>
+          <dd class="col-sm-9"><%= @report.user %></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= link_to icon('fas fa-edit', 'Edit'), edit_report_path(@report), class: 'btn btn btn-icon icon-left btn-warning' %>
+<%= link_to icon('fas fa-arrow-left', 'Back'), reports_path, class: 'btn btn-icon icon-left btn-secondary d-mobile-none' %>
+
+<% content_for(:page_title, 'Show Report') %>

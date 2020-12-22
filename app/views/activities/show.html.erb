@@ -1,0 +1,37 @@
+<section class="section">
+  <div class="section-header d-mobile-none">
+    <h1>Activities</h1>
+    <div class="section-header-breadcrumb">
+      <div class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></div>
+      <div class="breadcrumb-item"><%= link_to 'Activities', activities_path %></div>
+      <div class="breadcrumb-item">Show Activity</div>
+    </div>
+  </div>
+
+  <div class="section-body">
+    <div class="card">
+      <div class="card-header">
+        <h4>Show Activity</h4>
+      </div>
+      <div class="card-body">
+        <dl class="row">
+          <dt class="col-sm-3">Time:</dt>
+          <dd class="col-sm-9"><%= l(@activity.time) %></dd>
+          <dt class="col-sm-3">Course:</dt>
+          <dd class="col-sm-9"><%= @activity.course %></dd>
+          <dt class="col-sm-3">Report:</dt>
+          <dd class="col-sm-9"><%= @activity.report %></dd>
+          <dt class="col-sm-3">Title:</dt>
+          <dd class="col-sm-9"><%= @activity.title %></dd>
+          <dt class="col-sm-3">Description:</dt>
+          <dd class="col-sm-9"><%= @activity.description %></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= link_to icon('fas fa-edit', 'Edit'), edit_activity_path(@activity), class: 'btn btn btn-icon icon-left btn-warning' %>
+<%= link_to icon('fas fa-arrow-left', 'Back'), activities_path, class: 'btn btn-icon icon-left btn-secondary d-mobile-none' %>
+
+<% content_for(:page_title, 'Show Activity') %>

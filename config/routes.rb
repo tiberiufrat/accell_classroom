@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :activities
+  resources :reports
   resources :course_works
   resources :course_work_materials
   resources :announcements
