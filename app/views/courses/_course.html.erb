@@ -25,6 +25,18 @@
       <% end %>
       <span class="badge badge-info"><%= t('attributes.code') %>: <code style="color: white; font-size: 110%;"><%= course.enrollment_code.upcase %></code></span>
     </div>
+    <p>
+      <div>
+        <% unless course.course_work_materials.empty? %>
+          <%= t('activerecord.models.course_work_material', count: course.course_work_materials.size) %>: <span class="badge badge-warning"><%= course.course_work_materials.size %></span>
+        <% end %>
+        <% unless course.course_works.empty? %>
+          <%= t('activerecord.models.course_work', count: course.course_works.size) %>: <span class="badge badge-warning"><%= course.course_works.size %></span>
+        <% end %>
+        <% unless course.announcements.empty? %>
+          <%= t('activerecord.models.announcement', count: course.announcements.size) %>: <span class="badge badge-warning"><%= course.announcements.size %></span>
+        <% end %>
+      </div>
   </div>
   <div class="card-footer bg-whitesmoke">
     <%= t('general.created_at') %> <%= l course.creation_time, format: "%-d %B %Y" %>
