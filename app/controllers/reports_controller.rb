@@ -67,7 +67,7 @@ class ReportsController < ApplicationController
   private
 
   def set_report
-    @report = Report.find(params[:id])
+    @report = Report.findy(params[:id])
   end
 
   def report_params

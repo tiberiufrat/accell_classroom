@@ -33,6 +33,8 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'signet'
 
+gem 'idy'
+
 gem 'i18n', '~> 1.8', '>= 1.8.5'
 gem 'rails-i18n'
 
