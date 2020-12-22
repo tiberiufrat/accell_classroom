@@ -31,6 +31,7 @@ gem 'omniauth-google-oauth2'
 gem 'signet'
 
 gem 'i18n', '~> 1.8', '>= 1.8.5'
+gem 'rails-i18n'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

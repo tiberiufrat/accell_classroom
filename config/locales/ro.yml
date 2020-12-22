@@ -45,6 +45,15 @@ ro:
       course:
         one: Curs
         other: Cursuri
+      course_work_material:
+        one: Material
+        other: Materiale
+      course_work:
+        one: Temă
+        other: Teme
+      announcement:
+        one: Anunț
+        other: Anunțuri
     attributes:
       admin:
         password: Parola
