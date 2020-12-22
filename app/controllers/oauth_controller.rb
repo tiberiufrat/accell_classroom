@@ -130,7 +130,10 @@ class OauthController < ApplicationController
         Google::Apis::ClassroomV1::AUTH_CLASSROOM_COURSEWORK_STUDENTS_READONLY,
         Google::Apis::ClassroomV1::AUTH_CLASSROOM_COURSEWORKMATERIALS_READONLY
       ],
-      redirect_uri: callback_url
+      redirect_uri: callback_url,
+      additional_parameters: {
+        hd: '*'
+      }
     }
   end
 end
