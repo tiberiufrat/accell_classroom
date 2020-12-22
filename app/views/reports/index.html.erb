@@ -48,7 +48,6 @@
                   <td><%= l(report.date_end, format: :date) %></td>
                   <td>
                     <%= link_to icon('fas fa-eye'), report, title: t('general.show'), class: 'btn btn-icon btn-sm btn-info mr-1' %>
-                    <%= link_to icon('fas fa-edit'), edit_report_path(report), title: t('general.edit'), class: 'btn btn-icon btn-sm btn-warning mr-1' %>
                     <%= link_to icon('fas fa-trash'), report, title: t('general.delete'), class: 'btn btn-icon btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?', remote: true } %>
                   </td>
                 </tr>

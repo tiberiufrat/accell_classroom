@@ -14,13 +14,104 @@
     </div>
 
   <% else %>
+    <% if current_user.courses.none? %>
+    <!-- Import courses Hero -->
+      <div class="hero align-items-center bg-primary text-white mb-3">
+        <div class="hero-inner text-center">
+          <h2><%= t('.no_courses') %></h2>
+          <p class="lead"><%= t('.unimported_lead') %></p>
+          <div class="mt-4">
+            <%= link_to icon('fa fa-cloud-upload', ' ' + t('.no_courses')), redirect_path, class: "btn btn-outline-white btn-lg btn-icon icon-left" %>
+            <a class="btn btn-outline-white btn-lg btn-icon icon-left" style="cursor: pointer" onclick="Swal.fire({title: 'Ajutor', html: 'Apăsați pe „Importați-vă cursurile”. Selectați contul dumneavoastră <strong>de școală</strong> și apăsați pe „Permiteți” atunci când sunteți întrebați.', icon: 'info'})">
+              <span><i class="fa fa-info"></i><span> <%= t('general.help') %></span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <!-- Welcome Hero -->
     <div class="hero text-white hero-bg-image hero-bg-parallax mb-4" style="background-image: url('<%= image_path "unsplash/andre-benz-1214056-unsplash.jpg" %>');">
       <div class="hero-inner">
         <h2><%= t('.welcome') %>, <%= current_user.name %>!</h2>
         <p class="lead"><%= t('.auth_lead') %></p>
         <div class="mt-4">
           <%= link_to(icon('fas fa-user-circle', ' Vezi contul tău'), "#", class: "btn btn-outline-white btn-lg btn-icon icon-left") %>
-          <%= link_to(icon('fas fa-user-edit', ' Modifică detaliile contului'), "#", class: "btn btn-outline-white btn-lg btn-icon icon-left") %>
+          <%= link_to(icon('fas fa-file-chart-line', ' Vezi rapoartele tale'), "#", class: "btn btn-outline-white btn-lg btn-icon icon-left") %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data presentation -->
+    <div class="col-12 p-0">
+      <div class="row" id="data-presentation">
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+          <%= link_to courses_path do %>
+            <div class="card card-statistic-1">
+              <div class="card-icon bg-primary">
+                <i class="fas fa-users-class"></i>
+              </div>
+              <div class="card-wrap">
+                <div class="card-header">
+                  <h4><%= t('activerecord.models.course.other') %></h4>
+                </div>
+                <div class="card-body">
+                  <%= current_user.courses.size %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+          <%= link_to courses_path do %>
+            <div class="card card-statistic-1">
+              <div class="card-icon bg-success">
+                <i class="fas fa-chart-network"></i>
+              </div>
+              <div class="card-wrap">
+                <div class="card-header">
+                  <h4><%= t('.total_activities') %></h4>
+                </div>
+                <div class="card-body">
+                  <%= current_user.activities.size %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+          <%= link_to reports_path do %>
+            <div class="card card-statistic-1">
+              <div class="card-icon bg-warning">
+                <i class="fas fa-file-chart-line"></i>
+              </div>
+              <div class="card-wrap">
+                <div class="card-header">
+                  <h4><%= t('.reports_generated') %></h4>
+                </div>
+                <div class="card-body">
+                  <%= current_user.reports.size %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+          <%= link_to courses_path do %>
+            <div class="card card-statistic-1">
+              <div class="card-icon bg-danger">
+                <i class="fas fa-building"></i>
+              </div>
+              <div class="card-wrap">
+                <div class="card-header">
+                  <h4><%= t('.activities_monthly') %></h4>
+                </div>
+                <div class="card-body">
+                  <%= current_user.activities.where(time: [DateTime.now.beginning_of_month..DateTime.now]).size %>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
