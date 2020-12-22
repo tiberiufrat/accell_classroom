@@ -53,7 +53,6 @@ class OauthController < ApplicationController
         announcements = service.list_course_announcements(course[:id]).announcements
         course_works = service.list_course_works(course[:id]).course_work
         course_work_materials = service.list_course_course_work_materials(course[:id]).course_work_material
-        byebug
 
         unless announcements.nil?
           announcements.each do |announcement|
@@ -90,7 +89,7 @@ class OauthController < ApplicationController
 
         unless course_work_materials.nil?
           course_work_materials.each do |course_work_material|
-            CourseWork.create!(
+            CourseWorkMaterial.create!(
               {
                 course: created_course,
                 classroom_id: course_work_material.id,

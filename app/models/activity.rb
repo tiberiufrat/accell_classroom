@@ -1,4 +1,4 @@
 class Activity < ApplicationRecord
-  belongs_to :course
-  belongs_to :report
+  belongs_to :course, dependent: :destroy
+  belongs_to :report, dependent: :destroy
 end

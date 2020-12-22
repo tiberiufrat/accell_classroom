@@ -48,11 +48,13 @@ class ReportsController < ApplicationController
   end
 
   private
-    def set_report
-      @report = Report.find(params[:id])
-    end
 
-    def report_params
-      params.require(:report).permit(:date_start, :date_end, :user_id)
-    end
+  def set_report
+    @report = Report.find(params[:id])
+  end
+
+  def report_params
+    params.require(:report).permit(:date_start, :date_end, :user_id)
+  end
+
 end

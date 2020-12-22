@@ -24,6 +24,17 @@ ro:
       declined: Respins
       suspended: Suspendat
       unknown: Necunoscut
+  reports:
+    added_announcement: Anunț adăugat
+    added_course_work: Temă adăugată
+    added_course_work_material: Material adăugat
+    with_materials:
+      one: Un material atașat
+      few: "%{count} materiale atașate"
+      other: "%{count} de materiale atașate"
+    in_course: la cursul
+    for_all_students: pentru toți elevii
+    for_some_students: pentru o parte dintre elevi
   attributes:
     name: Nume
     grade: Clasă
@@ -44,15 +55,19 @@ ro:
     models:
       course:
         one: Curs
+        few: Cursuri
         other: Cursuri
       course_work_material:
         one: Material
+        few: Materiale
         other: Materiale
       course_work:
         one: Temă
+        few: Teme
         other: Teme
       announcement:
         one: Anunț
+        few: Anunțuri
         other: Anunțuri
     attributes:
       admin:

@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_21_200100) do
+ActiveRecord::Schema.define(version: 2020_12_22_082239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.datetime "time"
+    t.bigint "course_id", null: false
+    t.bigint "report_id", null: false
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_activities_on_course_id"
+    t.index ["report_id"], name: "index_activities_on_report_id"
+  end
 
   create_table "announcements", force: :cascade do |t|
     t.string "classroom_id"
@@ -105,6 +117,15 @@ ActiveRecord::Schema.define(version: 2020_12_21_200100) do
     t.index ["linkable_type", "linkable_id"], name: "index_links_on_linkable"
   end
 
+  create_table "reports", force: :cascade do |t|
+    t.datetime "date_start"
+    t.datetime "date_end"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false
     t.text "data"
@@ -141,8 +162,11 @@ ActiveRecord::Schema.define(version: 2020_12_21_200100) do
     t.index ["youtube_videoable_type", "youtube_videoable_id"], name: "index_youtube_videos_on_youtube_videoable"
   end
 
+  add_foreign_key "activities", "courses"
+  add_foreign_key "activities", "reports"
   add_foreign_key "announcements", "courses"
   add_foreign_key "course_work_materials", "courses"
   add_foreign_key "course_works", "courses"
   add_foreign_key "courses", "users"
+  add_foreign_key "reports", "users"
 end
