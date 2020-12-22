@@ -1,5 +1,5 @@
 class CourseWork < ApplicationRecord
-  belongs_to :course, dependent: :destroy
+  belongs_to :course
   has_many :drive_files, as: :drive_fileable
   has_many :youtube_videos, as: :youtube_videoable
   has_many :links, as: :linkable

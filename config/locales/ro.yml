@@ -7,6 +7,12 @@ ro:
     print_page: Tipărește pagina
     go_to: Accesează
     created_at: Creat pe
+    actions: Acțiuni
+    show: Vizualizare
+    edit: Editare
+    delete: Ștergere
+    next_page: Următoarea pagină
+    back: Înapoi
   home:
     index:
       title: Panou de control
@@ -25,6 +31,9 @@ ro:
       suspended: Suspendat
       unknown: Necunoscut
   reports:
+    index:
+      title: Rapoartele mele
+      add: Generează un raport
     added_announcement: Anunț adăugat
     added_course_work: Temă adăugată
     added_course_work_material: Material adăugat
@@ -69,19 +78,24 @@ ro:
         one: Anunț
         few: Anunțuri
         other: Anunțuri
+      report:
+        one: Raport
+        few: Rapoarte
+        other: Rapoarte
+      user:
+        one: Utilizator
+        few: Utilizatori
+        other: Utilizatori
     attributes:
-      admin:
+      user:
         password: Parola
         email: Adresa de e-mail
         name: Numele
-      volunteer:
-      event:
-        title: Denumire
-        start: Început
-        end: Sfârșit
-        color: Culoare
-        all_day: Toată ziua
-        admin: Creator
+      report:
+        id: Nr. crt.
+        date_start: Dată de început
+        date_end: Dată de sfârșit
+        user_id: Profesor
     errors:
       messages:
         record_invalid: Validare nereușită %{errors}

@@ -23,6 +23,7 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new(report_params)
+    @report.user = current_user
     @report.save!
 
     respond_to do |format|
@@ -40,6 +41,7 @@ class ReportsController < ApplicationController
   end
 
   def destroy
+    @report.activities.destroy_all
     @report.destroy
     respond_to do |format|
       format.html { redirect_to reports_url, notice: 'Report was successfully destroyed.' }

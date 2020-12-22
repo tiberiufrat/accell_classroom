@@ -1,6 +1,6 @@
 class Report < ApplicationRecord
-  belongs_to :user, dependent: :destroy
-  has_many :activities
+  belongs_to :user
+  has_many :activities, dependent: :destroy
 
   after_create :gather_activities
 
