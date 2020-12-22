@@ -37,6 +37,10 @@ ro:
       add: Generează un raport
     show:
       title: Vizualizare raport
+    notices:
+      success_created: Raportul a fost creat cu succes.
+      success_updated: Raportul a fost actualizat cu succes.
+      success_destroyed: Raporul a fost șters cu succes.
     added_announcement: Anunț adăugat
     added_course_work: Temă adăugată
     added_course_work_material: Material adăugat
