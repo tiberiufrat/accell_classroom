@@ -42,7 +42,7 @@ class ReportsController < ApplicationController
     @report.save!
 
     respond_to do |format|
-      format.html { redirect_to @report, notice: 'Report was successfully created.' }
+      format.html { redirect_to @report, notice: t('reports.notices.success_created') }
       format.json { render :show, status: :created }
     end
   end
@@ -50,7 +50,7 @@ class ReportsController < ApplicationController
   def update
     @report.update!(report_params)
     respond_to do |format|
-      format.html { redirect_to @report, notice: 'Report was successfully updated.' }
+      format.html { redirect_to @report, notice: t('reports.notices.success_updated') }
       format.json { render :show }
     end
   end
@@ -59,7 +59,7 @@ class ReportsController < ApplicationController
     @report.activities.destroy_all
     @report.destroy
     respond_to do |format|
-      format.html { redirect_to reports_url, notice: 'Report was successfully destroyed.' }
+      format.html { redirect_to reports_url, notice: t('reports.notices.success_destroyed') }
       format.json { head :no_content }
     end
   end

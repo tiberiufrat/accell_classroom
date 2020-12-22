@@ -18,6 +18,8 @@
       </div>
       <div class="card-body">
         <dl class="row">
+          <dt class="col-sm-3">№.</dt>
+          <dd class="col-sm-9"><%= @report.id %></dd>
           <dt class="col-sm-3"><%= t('activerecord.attributes.report.date_start') %></dt>
           <dd class="col-sm-9"><%= l(@report.date_start, format: :date) %></dd>
           <dt class="col-sm-3"><%= t('activerecord.attributes.report.date_end') %></dt>
@@ -44,7 +46,7 @@
   </div>
 </section>
 
-<%= link_to icon('fas fa-edit', t('general.edit')), edit_report_path(@report), class: 'btn btn btn-icon icon-left btn-warning' %>
+<%# link_to icon('fas fa-edit', t('general.edit')), edit_report_path(@report), class: 'btn btn btn-icon icon-left btn-warning' %>
 <%= link_to icon('fas fa-arrow-left', t('general.back')), reports_path, class: 'btn btn-icon icon-left btn-secondary d-mobile-none' %>
 
 <% content_for(:page_title, t('.title')) %>

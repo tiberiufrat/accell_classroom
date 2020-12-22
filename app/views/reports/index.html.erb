@@ -34,7 +34,7 @@
           <table class="table table-striped table-md">
             <thead>
               <tr>
-                <th><%= sort_link_turbo(@search, :id) %></th>
+                <th><%= sort_link_turbo(@search, :id, '№.') %></th>
                 <th><%= sort_link_turbo(@search, :date_start, t('activerecord.attributes.report.date_start')) %></th>
                 <th><%= sort_link_turbo(@search, :date_end, t('activerecord.attributes.report.date_end')) %></th>
                 <th><%= t('general.actions') %></th>
@@ -44,8 +44,8 @@
               <% @reports.each do |report| %>
                 <tr data-target="infinite-page.item">
                   <td><%= report.id %></td>
-                  <td><%= l(report.date_start) %></td>
-                  <td><%= l(report.date_end) %></td>
+                  <td><%= l(report.date_start, format: :date) %></td>
+                  <td><%= l(report.date_end, format: :date) %></td>
                   <td>
                     <%= link_to icon('fas fa-eye'), report, title: t('general.show'), class: 'btn btn-icon btn-sm btn-info mr-1' %>
                     <%= link_to icon('fas fa-edit'), edit_report_path(report), title: t('general.edit'), class: 'btn btn-icon btn-sm btn-warning mr-1' %>
