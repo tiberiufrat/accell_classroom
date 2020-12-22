@@ -1,14 +1,13 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   def index
-    # @search = Course.reverse_chronologically.ransack(params[:q])
-    #
-    # respond_to do |format|
-    #   format.any(:html, :json) { @courses = set_page_and_extract_portion_from @search.result }
-    #   format.csv { render csv: @search.result }
-    # end
-    @courses = Course.all
+    @courses = Course.where(user: current_user)
+    respond_to do |format|
+      format.any(:html, :json)
+      format.csv { render csv: @courses }
+    end
   end
 
   def show
