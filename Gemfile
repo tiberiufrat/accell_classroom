@@ -22,6 +22,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 gem 'activerecord-session_store'
 gem 'devise'
 gem 'google-api-client'

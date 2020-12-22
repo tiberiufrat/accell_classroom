@@ -13,6 +13,20 @@ class ReportsController < ApplicationController
   def show
     fresh_when etag: @report
     @activities = @report.activities.order(:time).reverse
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "#{t('activerecord.models.report.one')} № #{@report.id} pentru #{@report.user.name}",
+        page_size: 'A4',
+        template: "reports/show.pdf.html.erb",
+        layout: "pdf.html",
+        orientation: "Portrait",
+        lowquality: true,
+        zoom: 1.1,
+        dpi: 75
+      end
+    end
   end
 
   def new

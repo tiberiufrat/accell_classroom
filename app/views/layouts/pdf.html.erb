@@ -3,13 +3,15 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-		<title>Your Title — Stisla</title>
+		<title>Raport</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+
 
 		<%= csrf_meta_tags %>
 	    <%= csp_meta_tag %>
-
-	    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-	    <%= stylesheet_link_tag 'mobile', media: 'all', 'data-turbolinks-track': 'reload' if platform.mobile_app? %>
+      <%= wicked_pdf_stylesheet_link_tag "application" %>
+      <%= wicked_pdf_stylesheet_link_tag "mobile" %>
 
 	    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
