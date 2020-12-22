@@ -1,33 +1,47 @@
 <section class="section">
   <div class="section-header d-mobile-none">
-    <h1>Reports</h1>
+    <h1><%= t('activerecord.models.report.other') %></h1>
     <div class="section-header-breadcrumb">
-      <div class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></div>
-      <div class="breadcrumb-item"><%= link_to 'Reports', reports_path %></div>
-      <div class="breadcrumb-item">Show Report</div>
+      <div class="breadcrumb-item"><%= link_to t('home.index.title'), root_path %></div>
+      <div class="breadcrumb-item"><%= link_to t('reports.index.title'), reports_path %></div>
+      <div class="breadcrumb-item"><%= t('.title') %></div>
     </div>
   </div>
 
   <div class="section-body">
     <div class="card">
       <div class="card-header">
-        <h4>Show Report</h4>
+        <h4><%= t('.title') %></h4>
       </div>
       <div class="card-body">
         <dl class="row">
-          <dt class="col-sm-3">Date start:</dt>
+          <dt class="col-sm-3"><%= t('activerecord.attributes.report.date_start') %></dt>
           <dd class="col-sm-9"><%= l(@report.date_start) %></dd>
-          <dt class="col-sm-3">Date end:</dt>
+          <dt class="col-sm-3"><%= t('activerecord.attributes.report.date_end') %></dt>
           <dd class="col-sm-9"><%= l(@report.date_end) %></dd>
-          <dt class="col-sm-3">User:</dt>
-          <dd class="col-sm-9"><%= @report.user %></dd>
+          <dt class="col-sm-3"><%= t('activerecord.attributes.report.user_id') %></dt>
+          <dd class="col-sm-9"><%= @report.user.name %></dd>
         </dl>
+
+        <div class="list-group">
+          <% @activities.each do |activity| %>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"><%= activity.title %></h5>
+                <span><%= l(activity.time) %></span>
+              </div>
+              <p class="mb-1"><%= activity.description.truncate(120, separator: ' ', omission: '... (continuare)') %></p>
+              <span><%= t('reports.in_course') %> <%= activity.course.name %></span>
+            </a>
+          <% end %>
+        </div>
+        
       </div>
     </div>
   </div>
 </section>
 
-<%= link_to icon('fas fa-edit', 'Edit'), edit_report_path(@report), class: 'btn btn btn-icon icon-left btn-warning' %>
-<%= link_to icon('fas fa-arrow-left', 'Back'), reports_path, class: 'btn btn-icon icon-left btn-secondary d-mobile-none' %>
+<%= link_to icon('fas fa-edit', t('general.edit')), edit_report_path(@report), class: 'btn btn btn-icon icon-left btn-warning' %>
+<%= link_to icon('fas fa-arrow-left', t('general.back')), reports_path, class: 'btn btn-icon icon-left btn-secondary d-mobile-none' %>
 
-<% content_for(:page_title, 'Show Report') %>
+<% content_for(:page_title, t('.title')) %>

@@ -16,7 +16,7 @@ class Report < ApplicationRecord
                 report: self,
                 time: announcement.creation_time,
                 title: I18n.translate('reports.added_announcement'),
-                description: "„#{announcement.text}” (#{I18n.translate('reports.with_materials', count: announcement.materials)}) #{announcement.all_students ? I18n.translate('reports.for_all_students') : I18n.translate('reports.for_some_students')} #{I18n.translate('reports.in_course')} #{announcement.course.name}"
+                description: "„#{announcement.text}” #{announcement.materials ? '(' + I18n.translate('reports.with_materials', count: announcement.materials) + ')' : ''}, #{announcement.all_students ? I18n.translate('reports.for_all_students') : I18n.translate('reports.for_some_students')}"
               }
             )
           end
@@ -32,7 +32,7 @@ class Report < ApplicationRecord
                 report: self,
                 time: course_work.creation_time,
                 title: I18n.translate('reports.added_course_work'),
-                description: "„#{course_work.title}” (#{I18n.translate('reports.with_materials', count: course_work.materials)}) #{course_work.all_students ? I18n.translate('reports.for_all_students') : I18n.translate('reports.for_some_students')} #{I18n.translate('reports.in_course')} #{course_work.course.name}"
+                description: "„#{course_work.title}” #{course_work.materials ? '(' + I18n.translate('reports.with_materials', count: course_work.materials) + ')' : ''}, #{course_work.all_students ? I18n.translate('reports.for_all_students') : I18n.translate('reports.for_some_students')}"
               }
             )
           end
@@ -48,7 +48,7 @@ class Report < ApplicationRecord
                 report: self,
                 time: course_work_material.creation_time,
                 title: I18n.translate('reports.added_course_work_material'),
-                description: "„#{course_work_material.title}” (#{I18n.translate('reports.with_materials', count: course_work_material.materials)}) #{course_work_material.all_students ? I18n.translate('reports.for_all_students') : I18n.translate('reports.for_some_students')} #{I18n.translate('reports.in_course')} #{course_work_material.course.name}"
+                description: "„#{course_work_material.title}” #{course_work_material.materials ? '(' + I18n.translate('reports.with_materials', count: course_work_material.materials) + ')' : ''}, #{course_work_material.all_students ? I18n.translate('reports.for_all_students') : I18n.translate('reports.for_some_students')}"
               }
             )
           end

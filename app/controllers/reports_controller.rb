@@ -12,6 +12,7 @@ class ReportsController < ApplicationController
 
   def show
     fresh_when etag: @report
+    @activities = @report.activities.order(:time).reverse
   end
 
   def new

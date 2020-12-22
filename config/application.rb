@@ -11,7 +11,7 @@ module AccellClassroom
     config.app                            = config_for(:config)
     config.i18n.available_locales         = %i[ro en]
     config.i18n.default_locale            = :ro
-    config.time_zone                      = 'UTC'
+    config.time_zone                      = 'Bucharest'
     config.generators.scaffold_stylesheet = false
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1

@@ -34,14 +34,17 @@ ro:
     index:
       title: Rapoartele mele
       add: Generează un raport
+    show:
+      title: Vizualizare raport
     added_announcement: Anunț adăugat
     added_course_work: Temă adăugată
     added_course_work_material: Material adăugat
     with_materials:
+      zero: Niciun material atașat
       one: Un material atașat
       few: "%{count} materiale atașate"
       other: "%{count} de materiale atașate"
-    in_course: la cursul
+    in_course: în cursul
     for_all_students: pentru toți elevii
     for_some_students: pentru o parte dintre elevi
   attributes:
