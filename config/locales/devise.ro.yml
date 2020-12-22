@@ -40,5 +40,6 @@ ro:
       not_found: "nu a fost găsit"
       not_locked: "nu era blocat"
       not_saved:
-        one: "O eroare a împiedicat această %{resource} de la a fi salvată:"
-        other: "%{count} (de) erori au împiedicat această %{resource} de la a fi salvată"
+        one: "O eroare a împiedicat acest/această %{resource} de la a fi salvată:"
+        few: "%{count} erori au împiedicat acest/această %{resource} de la a fi salvată"
+        other: "%{count} de erori au împiedicat acest/această %{resource} de la a fi salvată"
