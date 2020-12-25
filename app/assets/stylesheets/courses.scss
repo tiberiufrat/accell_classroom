@@ -1,3 +1,12 @@
 // Place all the styles related to the courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.nav-link .badge-transparent {
+  color: #fff;
+  background-color: #6777ef;
+}
+
+.nav-link.active .badge-transparent {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}

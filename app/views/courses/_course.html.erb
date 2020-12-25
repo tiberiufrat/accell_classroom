@@ -1,10 +1,8 @@
 <div class="card card-primary course-card">
-  <div class="card-header">
+  <div class="card-header" onclick="window.location='<%= course_path(course) %>'" style="cursor: pointer">
     <h4><%= course.name %></h4>
     <div class="card-header-action">
-      <a href="<%= course.link %>" class="btn btn-primary">
-        <%= t('general.go_to') %>
-      </a>
+      <%= link_to icon('fas fa-users-class'), course.link, class: "btn btn-icon btn-sm btn-info", title: "", data: { toggle: "tooltip", placement: "top", 'original-title' => t('courses.index.view_in_classroom') } %>
     </div>
   </div>
   <div class="card-body">

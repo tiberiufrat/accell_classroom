@@ -1,45 +1,125 @@
 <section class="section">
   <div class="section-header d-mobile-none">
-    <h1>Courses</h1>
+    <h1><%= t('activerecord.models.course.other') %></h1>
     <div class="section-header-breadcrumb">
-      <div class="breadcrumb-item"><%= link_to 'Dashboard', root_path %></div>
-      <div class="breadcrumb-item"><%= link_to 'Courses', courses_path %></div>
-      <div class="breadcrumb-item">Show Course</div>
+      <div class="breadcrumb-item"><%= link_to t('home.index.title'), root_path %></div>
+      <div class="breadcrumb-item"><%= link_to t('courses.index.title'), courses_path %></div>
+      <div class="breadcrumb-item"><%= t('.title') %></div>
     </div>
   </div>
 
   <div class="section-body">
     <div class="card">
       <div class="card-header">
-        <h4>Show Course</h4>
+        <h4><%= t('.title') %></h4>
       </div>
       <div class="card-body">
         <dl class="row">
-          <dt class="col-sm-3">Classroom:</dt>
-          <dd class="col-sm-9"><%= @course.classroom_id %></dd>
-          <dt class="col-sm-3">Name:</dt>
-          <dd class="col-sm-9"><%= @course.name %></dd>
-          <dt class="col-sm-3">Section:</dt>
-          <dd class="col-sm-9"><%= @course.section %></dd>
-          <dt class="col-sm-3">Description:</dt>
-          <dd class="col-sm-9"><%= @course.description %></dd>
-          <dt class="col-sm-3">Creation time:</dt>
-          <dd class="col-sm-9"><%= l(@course.creation_time) %></dd>
-          <dt class="col-sm-3">Enrollment code:</dt>
-          <dd class="col-sm-9"><%= @course.enrollment_code %></dd>
-          <dt class="col-sm-3">Course state:</dt>
-          <dd class="col-sm-9"><%= @course.course_state %></dd>
-          <dt class="col-sm-3">Link:</dt>
-          <dd class="col-sm-9"><%= @course.link %></dd>
-          <dt class="col-sm-3">User:</dt>
-          <dd class="col-sm-9"><%= @course.user %></dd>
+          <dt class="col-sm-2"><%= t('activerecord.attributes.course.name') %></dt>
+          <dd class="col-sm-10"><span class="badge badge-light"><%= @course.name %></span></dd>
+          <% if @course.section %>
+            <dt class="col-sm-2"><%= t('activerecord.attributes.course.section') %></dt>
+            <dd class="col-sm-10"><%= @course.section %></dd>
+          <% end %>
+          <% if @course.description %>
+            <dt class="col-sm-2"><%= t('activerecord.attributes.course.description') %></dt>
+            <dd class="col-sm-10"><%= @course.description %></dd>
+          <% end %>
+          <dt class="col-sm-2"><%= t('activerecord.attributes.course.creation_time') %></dt>
+          <dd class="col-sm-10"><%= l(@course.creation_time, format: :long) %></dd>
+          <dt class="col-sm-2"><%= t('activerecord.attributes.course.enrollment_code') %></dt>
+          <dd class="col-sm-10"><span class="badge badge-info"><%= @course.enrollment_code.upcase %></span></dd>
+          <dt class="col-sm-2"><%= t('activerecord.attributes.course.course_state') %></dt>
+          <dd class="col-sm-10"><%= @course.status_badge.html_safe %></dd>
+          <dt class="col-sm-2"><%= t('activerecord.attributes.course.link') %></dt>
+          <dd class="col-sm-10"><a href="<%= @course.link %>"><%= @course.link %></a></dd>
         </dl>
+
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-2">
+            <ul class="nav nav-pills flex-column" id="myTab4" role="tablist">
+
+              <% if @course.announcements.any? %>
+                <li class="nav-item">
+                  <a class="nav-link active show" id="home-tab4" data-toggle="tab" href="#home4" role="tab" aria-controls="home" aria-selected="true">
+                    <%= t('activerecord.models.announcement.other') %>
+                    <span class="badge badge-transparent"><%= @course.announcements.size %></span>
+                  </a>
+                </li>
+              <% end %>
+
+              <% if @course.course_works.any? %>
+                <li class="nav-item">
+                  <a class="nav-link" id="profile-tab4" data-toggle="tab" href="#profile4" role="tab" aria-controls="profile" aria-selected="false">
+                    <%= t('activerecord.models.course_work.other') %>
+                    <span class="badge badge-transparent"><%= @course.course_works.size %></span>
+                  </a>
+                </li>
+              <% end %>
+
+              <% if @course.course_work_materials.any? %>
+                <li class="nav-item">
+                  <a class="nav-link" id="contact-tab4" data-toggle="tab" href="#contact4" role="tab" aria-controls="contact" aria-selected="false">
+                    <%= t('activerecord.models.course_work_material.other') %>
+                    <span class="badge badge-transparent"><%= @course.course_work_materials.size %></span>
+                  </a>
+                </li>
+              <% end %>
+
+            </ul>
+          </div>
+          <div class="col-12 col-sm-12 col-md-10">
+            <div class="tab-content no-padding" id="myTab2Content">
+              <div class="tab-pane fade active show" id="home4" role="tabpanel" aria-labelledby="home-tab4">
+                <div class="list-group">
+                  <% @course.announcements.each do |announcement| %>
+                    <a class="list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1"><%= t('activerecord.models.announcement.one') %></h5>
+                        <span><%= l(announcement.creation_time, format: :long) %></span>
+                      </div>
+                      <p class="mb-1">„<%= announcement.text %>”</p>
+                      <span><%= announcement.all_students ? t('reports.for_all_students') : t('reports.for_some_students') %></span>
+                    </a>
+                  <% end %>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="profile4" role="tabpanel" aria-labelledby="profile-tab4">
+                <div class="list-group">
+                  <% @course.course_works.each do |course_work| %>
+                    <a class="list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1"><%= course_work.title %></h5>
+                        <span><%= l(course_work.creation_time, format: :long) %></span>
+                      </div>
+                      <p class="mb-1"><%= ("„" + course_work.description + "”") if course_work.description %></p>
+                      <span><%= course_work.translated_work_type %> <%= course_work.all_students ? t('reports.for_all_students') : t('reports.for_some_students') %></span>
+                    </a>
+                  <% end %>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="contact4" role="tabpanel" aria-labelledby="contact-tab4">
+                <div class="list-group">
+                  <% @course.course_work_materials.each do |course_work_material| %>
+                    <a class="list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1"><%= course_work_material.title %></h5>
+                        <span><%= l(course_work_material.creation_time, format: :long) %></span>
+                      </div>
+                      <p class="mb-1"><%= ("„" + course_work_material.description + "”") if course_work_material.description %></p>
+                      <span><%= course_work_material.all_students ? t('reports.for_all_students') : t('reports.for_some_students') %></span>
+                    </a>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<%= link_to icon('fas fa-edit', 'Edit'), edit_course_path(@course), class: 'btn btn btn-icon icon-left btn-warning' %>
-<%= link_to icon('fas fa-arrow-left', 'Back'), courses_path, class: 'btn btn-icon icon-left btn-secondary d-mobile-none' %>
+<%= link_to icon('fas fa-arrow-left', t('general.back')), courses_path, class: 'btn btn-icon icon-left btn-secondary d-mobile-none' %>
 
-<% content_for(:page_title, 'Show Course') %>
+<% content_for(:page_title, t('.title')) %>
