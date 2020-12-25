@@ -33,77 +33,69 @@ class OauthController < ApplicationController
     service.authorization = client
 
     @course_list = service.list_courses teacher_id: 'me'
-    all_ids = Course.pluck(:classroom_id)
     @course_list.to_h[:courses].each do |course|
-      unless all_ids.include? course[:id]
-        created_course = Course.create!(
-          {
-            classroom_id: course[:id],
-            name: course[:name],
-            section: course[:section],
-            description: course[:description],
-            creation_time: DateTime.parse(course[:creation_time]),
-            enrollment_code: course[:enrollment_code],
-            course_state: course[:course_state],
-            link: course[:alternate_link],
-            user: current_user,
-          }
-        )
+      created_course = Course.find_or_initialize_by(classroom_id: course[:id])
+      created_course.update!(
+        {
+          name: course[:name],
+          section: course[:section],
+          description: course[:description],
+          creation_time: DateTime.parse(course[:creation_time]),
+          enrollment_code: course[:enrollment_code],
+          course_state: course[:course_state],
+          link: course[:alternate_link],
+          user: current_user,
+        }
+      )
 
-        announcements = service.list_course_announcements(course[:id]).announcements
-        course_works = service.list_course_works(course[:id]).course_work
-        course_work_materials = service.list_course_course_work_materials(course[:id]).course_work_material
+      announcements = service.list_course_announcements(course[:id]).announcements
+      course_works = service.list_course_works(course[:id]).course_work
+      course_work_materials = service.list_course_course_work_materials(course[:id]).course_work_material
 
-        unless announcements.nil?
-          announcements.each do |announcement|
-            Announcement.create!(
-              {
-                course: created_course,
-                classroom_id: announcement.id,
-                text: announcement.text,
-                creation_time: DateTime.parse(announcement.creation_time),
-                all_students: (announcement.assignee_mode == 'ALL_STUDENTS'),
-                materials: (announcement.materials.size if announcement.materials)
-              }
-            )
-          end
+      unless announcements.nil?
+        announcements.each do |announcement|
+          Announcement.find_or_initialize_by(classroom_id: announcement.id).update!(
+            {
+              course: created_course,
+              text: announcement.text,
+              creation_time: DateTime.parse(announcement.creation_time),
+              all_students: (announcement.assignee_mode == 'ALL_STUDENTS'),
+              materials: (announcement.materials.size if announcement.materials)
+            }
+          )
         end
+      end
 
-        unless course_works.nil?
-          course_works.each do |course_work|
-            CourseWork.create!(
-              {
-                course: created_course,
-                classroom_id: course_work.id,
-                title: course_work.title,
-                description: course_work.description,
-                creation_time: DateTime.parse(course_work.creation_time),
-                all_students: (course_work.assignee_mode == 'ALL_STUDENTS'),
-                materials: (course_work.materials.size if course_work.materials),
-                work_type: course_work.work_type,
-                due_date: course_work.due_date
-              }
-            )
-          end
+      unless course_works.nil?
+        course_works.each do |course_work|
+          CourseWork.find_or_initialize_by(classroom_id: course_work.id).update!(
+            {
+              course: created_course,
+              title: course_work.title,
+              description: course_work.description,
+              creation_time: DateTime.parse(course_work.creation_time),
+              all_students: (course_work.assignee_mode == 'ALL_STUDENTS'),
+              materials: (course_work.materials.size if course_work.materials),
+              work_type: course_work.work_type,
+              due_date: course_work.due_date
+            }
+          )
         end
+      end
 
-        unless course_work_materials.nil?
-          course_work_materials.each do |course_work_material|
-            CourseWorkMaterial.create!(
-              {
-                course: created_course,
-                classroom_id: course_work_material.id,
-                title: course_work_material.title,
-                description: course_work_material.description,
-                creation_time: DateTime.parse(course_work_material.creation_time),
-                all_students: (course_work_material.assignee_mode == 'ALL_STUDENTS'),
-                materials: (course_work_material.materials.size if course_work_material.materials)
-              }
-            )
-          end
+      unless course_work_materials.nil?
+        course_work_materials.each do |course_work_material|
+          CourseWorkMaterial.find_or_initialize_by(classroom_id: course_work_material.id).update!(
+            {
+              course: created_course,
+              title: course_work_material.title,
+              description: course_work_material.description,
+              creation_time: DateTime.parse(course_work_material.creation_time),
+              all_students: (course_work_material.assignee_mode == 'ALL_STUDENTS'),
+              materials: (course_work_material.materials.size if course_work_material.materials)
+            }
+          )
         end
-      else
-        # TODO: Update existing courses
       end
     end
     redirect_to courses_path
