@@ -8,9 +8,9 @@ ro:
     go_to: Accesează
     created_at: Creat pe
     actions: Acțiuni
-    show: Vizualizare
-    edit: Editare
-    delete: Ștergere
+    show: Vizualizează
+    edit: Editează
+    delete: Șterge
     next_page: Următoarea pagină
     back: Înapoi
     download_pdf: Descarcă în format PDF

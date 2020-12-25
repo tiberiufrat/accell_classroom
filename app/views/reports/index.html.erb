@@ -42,12 +42,11 @@
             </thead>
             <tbody data-target="infinite-page.container">
               <% @reports.each do |report| %>
-                <tr data-target="infinite-page.item">
+                <tr data-target="infinite-page.item" onclick="window.location='<%= report_path(report) %>';" style="cursor: pointer;">
                   <td><%= report.id %></td>
                   <td><%= l(report.date_start, format: :date) %></td>
                   <td><%= l(report.date_end, format: :date) %></td>
                   <td>
-                    <%= link_to icon('fas fa-eye'), report, title: t('general.show'), class: 'btn btn-icon btn-sm btn-info mr-1' %>
                     <%= link_to icon('fas fa-trash'), report, title: t('general.delete'), class: 'btn btn-icon btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?', remote: true } %>
                   </td>
                 </tr>
