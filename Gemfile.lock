@@ -104,7 +104,7 @@ GEM
       warden (~> 1.2.3)
     dry-inflector (0.2.0)
     erubi (1.10.0)
-    faraday (1.1.0)
+    faraday (1.2.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     ffi (1.14.2)
@@ -191,7 +191,7 @@ GEM
     puma (5.1.1)
       nio4r (~> 2.0)
     rack (2.2.3)
-    rack-mini-profiler (2.2.0)
+    rack-mini-profiler (2.2.1)
       rack (>= 1.2.0)
     rack-proxy (0.6.5)
       rack
@@ -229,7 +229,7 @@ GEM
       rake (>= 0.8.7)
       thor (~> 1.0)
     rake (13.0.3)
-    ransack (2.4.0)
+    ransack (2.4.1)
       activerecord (>= 5.2.4)
       activesupport (>= 5.2.4)
       i18n
