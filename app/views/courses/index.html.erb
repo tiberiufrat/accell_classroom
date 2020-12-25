@@ -12,7 +12,7 @@
       <div class="card-header">
         <h4><%= t('.title') %></h4>
         <div class="card-header-action">
-          <%= link_to icon('fas fa-plus', t('.add')), new_course_path, class: 'btn btn-icon icon-left btn-primary' %>
+          <%= link_to icon('fas fa-sync', ' ' + t('.refresh')), courses_oauth_path, class: 'btn btn-icon icon-left btn-warning', id: 'refresh-courses' %>
           <%= render 'shared/card_dropdown' do %>
             <%= link_to icon('fas fa-download', t('general.export_data')), courses_path(format: :csv, q: request.params[:q]), class: 'dropdown-item has-icon' %>
             <%= link_to icon('fas fa-print', t('general.print_page')), 'javascript:window.print()', class: 'dropdown-item has-icon' %>
@@ -52,5 +52,16 @@
     </div>
   </div>
 </section>
+
+<script>
+  $('#refresh-courses').click(() => {
+    Swal.fire({
+      title: 'Se reîncarcă...',
+      text: 'Reîncărcarea va dura câteva secunde. Vă rugăm să așteptați...',
+      icon: 'info'
+    })
+    Swal.showLoading()
+  })
+</script>
 
 <% content_for(:page_title, 'List of Courses') %>

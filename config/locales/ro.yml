@@ -30,6 +30,7 @@ ro:
     index:
       title: Lista cursurilor
       add: Adaugă un curs
+      refresh: Reîncarcă cursurile
     status:
       active: Activ
       archived: Arhivat
