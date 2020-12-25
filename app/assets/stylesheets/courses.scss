@@ -10,3 +10,12 @@
   background-color: rgba(255, 255, 255, 0.25);
   color: #fff;
 }
+
+.alert.alert-has-icon {
+  align-items: baseline;
+}
+
+.alert.alert-has-icon .alert-body {
+  display: flex;
+  justify-content: space-between;
+}

@@ -79,6 +79,12 @@
                         <span><%= l(announcement.creation_time, format: :long) %></span>
                       </div>
                       <p class="mb-1">„<%= announcement.text %>”</p>
+
+                      <%= render announcement.links %>
+                      <%= render announcement.drive_files %>
+                      <%= render announcement.forms %>
+                      <%= render announcement.youtube_videos %>
+
                       <span><%= announcement.all_students ? t('reports.for_all_students') : t('reports.for_some_students') %></span>
                     </a>
                   <% end %>
@@ -93,6 +99,12 @@
                         <span><%= l(course_work.creation_time, format: :long) %></span>
                       </div>
                       <p class="mb-1"><%= ("„" + course_work.description + "”") if course_work.description %></p>
+
+                      <%= render course_work.links %>
+                      <%= render course_work.drive_files %>
+                      <%= render course_work.forms %>
+                      <%= render course_work.youtube_videos %>
+
                       <span><%= course_work.translated_work_type %> <%= course_work.all_students ? t('reports.for_all_students') : t('reports.for_some_students') %></span>
                     </a>
                   <% end %>
@@ -107,6 +119,12 @@
                         <span><%= l(course_work_material.creation_time, format: :long) %></span>
                       </div>
                       <p class="mb-1"><%= ("„" + course_work_material.description + "”") if course_work_material.description %></p>
+
+                      <%= render course_work_material.links %>
+                      <%= render course_work_material.drive_files %>
+                      <%= render course_work_material.forms %>
+                      <%= render course_work_material.youtube_videos %>
+
                       <span><%= course_work_material.all_students ? t('reports.for_all_students') : t('reports.for_some_students') %></span>
                     </a>
                   <% end %>

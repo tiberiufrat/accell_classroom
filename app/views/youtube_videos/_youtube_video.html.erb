@@ -1,0 +1,7 @@
+<div class="alert alert-danger alert-has-icon" onclick="window.location='<%= youtube_video.link %>'" style="cursor: pointer">
+  <div class="alert-icon"><i class="fab fa-youtube"></i></div>
+  <div class="alert-body">
+    <div class="alert-title"><%= youtube_video.title %></div>
+    <span class="d-none d-md-block"><%= youtube_video.link.truncate(50) %></span>
+  </div>
+</div>
