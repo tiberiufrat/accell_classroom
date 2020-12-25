@@ -25,6 +25,7 @@ require("cleave.js")
 require("waypoints/lib/noframework.waypoints")
 require("waypoints/lib/shortcuts/infinite")
 
+window.Swal = require("sweetalert2")
 window.iziToast = require("izitoast")
 
 // Stisla
