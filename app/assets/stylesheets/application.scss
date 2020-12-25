@@ -34,8 +34,13 @@ $fa-font-path: '@nguyenthanh1995/fontawesomepro/webfonts';
   background-color: #fd7e14;
 }
 
+.main-sidebar {
+  width: 251px;
+}
+
 .main-content {
   min-height: 649px;
+  padding-bottom: 30px;
 }
 
 .table .btn-icon.btn-sm {
