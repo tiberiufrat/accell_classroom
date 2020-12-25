@@ -100,11 +100,15 @@ class OauthController < ApplicationController
     end
     redirect_to courses_path
   rescue Google::Apis::AuthorizationError
-    response = client.refresh!
+    begin
+      response = client.refresh!
 
-    session[:authorization] = session[:authorization].merge(response)
+      session[:authorization] = session[:authorization].merge(response)
 
-    retry
+      retry
+    rescue
+      redirect_to redirect_path
+    end
   end
 
   private
