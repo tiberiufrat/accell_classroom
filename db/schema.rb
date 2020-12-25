@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 2020_12_22_082239) do
 
   create_table "links", force: :cascade do |t|
     t.string "url"
-    t.string "titile"
+    t.string "title"
     t.string "thumbnail"
     t.string "linkable_type"
     t.bigint "linkable_id"
