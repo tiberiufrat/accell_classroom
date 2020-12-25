@@ -9,20 +9,7 @@
   </div>
   <div class="card-body">
     <div>
-      <% case course.course_state
-         when "ACTIVE" %>
-        <span class="badge badge-success"><%= t('courses.status.active') %></span>
-      <% when "ARCHIVED" %>
-        <span class="badge badge-warning"><%= t('courses.status.archived') %></span>
-      <% when "PROVISIONED" %>
-        <span class="badge badge-light"><%= t('courses.status.provisioned') %></span>
-      <% when "DECLINED" %>
-        <span class="badge badge-danger"><%= t('courses.status.declined') %></span>
-      <% when "SUSPENDED" %>
-        <span class="badge badge-secondary"><%= t('courses.status.suspended') %></span>
-      <% else %>
-        <span class="badge badge-dark"><%= t('courses.status.unknown') %></span>
-      <% end %>
+      <%= course.status_badge.html_safe %>
       <span class="badge badge-info"><%= t('attributes.code') %>: <code style="color: white; font-size: 110%;"><%= course.enrollment_code.upcase %></code></span>
     </div>
     <p>
