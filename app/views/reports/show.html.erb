@@ -30,7 +30,7 @@
 
         <div class="list-group">
           <% @activities.each do |activity| %>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <a class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1"><%= activity.title %></h5>
                 <span><%= l(activity.time, format: :long) %></span>
