@@ -31,6 +31,9 @@ ro:
       title: Lista cursurilor
       add: Adaugă un curs
       refresh: Reîncarcă cursurile
+      view_in_classroom: Accesează pagina cursului pe Google Classroom
+    show:
+      title: Vizualizare curs
     status:
       active: Activ
       archived: Arhivat
@@ -57,9 +60,16 @@ ro:
       few: "%{count} materiale atașate"
       other: "%{count} de materiale atașate"
     in_course: în cursul
+    from_course: din cursul
     for_all_students: pentru toți elevii
     for_some_students: pentru o parte dintre elevi
     pdf_heading: Raport de activitate
+  course_work:
+    work_type:
+      unspecified: Temă de tip necunoscut
+      assignment: Temă
+      short_question: Întrebare cu răspuns liber
+      multiple_choice: Întrebare cu răspunsuri multiple
   attributes:
     name: Nume
     grade: Clasă
@@ -116,6 +126,17 @@ ro:
         date_start: Dată de început
         date_end: Dată de sfârșit
         user_id: Profesor
+      course:
+        id: Nr. crt.
+        classroom_id: Identificator Google Classroom
+        name: Nume
+        section: Secțiune
+        description: Descriere
+        creation_time: Creat
+        enrollment_code: Codul pentru curs
+        course_state: Stare
+        link: Adresă web
+        user: Profesor
     errors:
       messages:
         record_invalid: Validare nereușită %{errors}
