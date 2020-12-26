@@ -204,7 +204,12 @@
         </a>
         <!-- Dropdown menu -->
         <div class="dropdown-menu dropdown-menu-right">
-          <div class="dropdown-title">Stare: <span class="text-success">Conectat</span></div>
+          <div class="dropdown-title">Stare:
+            <span class="text-success">
+              <i class="far fa-check" style="font-size: inherit"></i>
+              Conectat
+            </span>
+          </div>
           <%= link_to(icon("far fa-user-circle", " Contul tău"), "#", class: "dropdown-item has-icon") %>
           <%= link_to(icon("far fa-user-edit", " Modifică contul"), edit_registration_path(current_user), class: "dropdown-item has-icon") %>
           <a href="#" class="dropdown-item has-icon">
@@ -215,7 +220,7 @@
         </div>
       </li>
     <% else %>
-      <%= link_to icon("fab fa-google", " " + t('general.log_in_google')), omniauth_authorize_path(:user, :google_oauth2), class: "btn btn-light btn-icon icon-left", style: "box-shadow: none;" %>
+      <%= link_to icon("fab fa-google", " " + t('general.log_in_google')), omniauth_authorize_path(:user, :google_oauth2), class: "btn btn-outline-white btn-icon icon-left" %>
     <% end %>
   </ul>
 </nav>
