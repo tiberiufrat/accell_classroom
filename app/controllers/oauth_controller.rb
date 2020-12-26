@@ -49,8 +49,11 @@ class OauthController < ApplicationController
       )
 
       announcements = service.list_course_announcements(course[:id]).announcements
+      announcements.select! { |a| a.creator_user_id == current_user.classroom_id } unless announcements.nil?
       course_works = service.list_course_works(course[:id]).course_work
+      course_works.select! { |a| a.creator_user_id == current_user.classroom_id } unless course_works.nil?
       course_work_materials = service.list_course_course_work_materials(course[:id]).course_work_material
+      course_work_materials.select! { |a| a.creator_user_id == current_user.classroom_id } unless course_work_materials.nil?
 
       unless announcements.nil?
         announcements.each do |announcement|
