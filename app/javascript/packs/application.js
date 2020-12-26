@@ -19,6 +19,7 @@ require("bootstrap")
 require("jquery.nicescroll")
 
 import './timeago';
+// require('@nguyenthanh1995/fontawesomepro/js/all')
 
 require("select2")
 require("cleave.js")
