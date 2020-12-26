@@ -197,7 +197,7 @@
       <li class="dropdown">
         <!-- Dropdown toggle -->
         <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-          <%= image_tag('avatar/avatar-1.png', class: 'rounded-circle mr-1') %>
+          <%= image_tag(current_user.image, class: 'rounded-circle mr-1') %>
           <div class="d-sm-none d-lg-inline-block">
             <%= current_user.name %>
           </div>
