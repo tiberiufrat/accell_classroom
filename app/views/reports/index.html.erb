@@ -12,10 +12,10 @@
       <div class="card-header">
         <h4><%= t('.title') %></h4>
         <div class="card-header-action">
-          <%= link_to icon('fas fa-plus', t('.add')), new_report_path, class: 'btn btn-icon icon-left btn-primary' %>
+          <%= link_to icon('far fa-plus', t('.add')), new_report_path, class: 'btn btn-icon icon-left btn-primary' %>
           <%= render 'shared/card_dropdown' do %>
-            <%= link_to icon('fas fa-download', t('general.export_data')), reports_path(format: :csv, q: request.params[:q]), class: 'dropdown-item has-icon' %>
-            <%= link_to icon('fas fa-print', t('general.print_page')), 'javascript:window.print()', class: 'dropdown-item has-icon' %>
+            <%= link_to icon('far fa-download', t('general.export_data')), reports_path(format: :csv, q: request.params[:q]), class: 'dropdown-item has-icon' %>
+            <%= link_to icon('far fa-print', t('general.print_page')), 'javascript:window.print()', class: 'dropdown-item has-icon' %>
           <% end %>
         </div>
       </div>
@@ -26,7 +26,7 @@
             <#= f.text_field :name_cont, class: 'form-control m-input m-input--solid', placeholder: 'Name' #>
           </div>
           <div class="form-group col-sm-2 text-right">
-            <#= f.button icon('fas fa-search', 'Search'), name: nil, class: 'btn btn-icon icon-left btn-primary' #>
+            <#= f.button icon('far fa-search', 'Search'), name: nil, class: 'btn btn-icon icon-left btn-primary' #>
           </div>
         <# end #>
         -->
@@ -47,7 +47,7 @@
                   <td><%= l(report.date_start, format: :date) %></td>
                   <td><%= l(report.date_end, format: :date) %></td>
                   <td>
-                    <%= link_to icon('fas fa-trash'), report, title: t('general.delete'), class: 'btn btn-icon btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?', remote: true } %>
+                    <%= link_to icon('far fa-trash'), report, title: t('general.delete'), class: 'btn btn-icon btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?', remote: true } %>
                   </td>
                 </tr>
               <% end %>

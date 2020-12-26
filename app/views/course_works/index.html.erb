@@ -12,10 +12,10 @@
       <div class="card-header">
         <h4>List of Course Works</h4>
         <div class="card-header-action">
-          <%= link_to icon('fas fa-plus', 'New Course Work'), new_course_work_path, class: 'btn btn-icon icon-left btn-primary' %>
+          <%= link_to icon('far fa-plus', 'New Course Work'), new_course_work_path, class: 'btn btn-icon icon-left btn-primary' %>
           <%= render 'shared/card_dropdown' do %>
-            <%= link_to icon('fas fa-download', 'Export Data'), course_works_path(format: :csv, q: request.params[:q]), class: 'dropdown-item has-icon' %>
-            <%= link_to icon('fas fa-print', 'Print Page'), 'javascript:window.print()', class: 'dropdown-item has-icon' %>
+            <%= link_to icon('far fa-download', 'Export Data'), course_works_path(format: :csv, q: request.params[:q]), class: 'dropdown-item has-icon' %>
+            <%= link_to icon('far fa-print', 'Print Page'), 'javascript:window.print()', class: 'dropdown-item has-icon' %>
           <% end %>
         </div>
       </div>
@@ -26,7 +26,7 @@
             <#= f.text_field :name_cont, class: 'form-control m-input m-input--solid', placeholder: 'Name' #>
           </div>
           <div class="form-group col-sm-2 text-right">
-            <#= f.button icon('fas fa-search', 'Search'), name: nil, class: 'btn btn-icon icon-left btn-primary' #>
+            <#= f.button icon('far fa-search', 'Search'), name: nil, class: 'btn btn-icon icon-left btn-primary' #>
           </div>
         <# end #>
         -->
@@ -59,9 +59,9 @@
                   <td><%= t(course_work.all_students) %></td>
                   <td><%= course_work.course %></td>
                   <td>
-                    <%= link_to icon('fas fa-eye'), course_work, title: 'Show it', class: 'btn btn-icon btn-sm btn-info mr-1' %>
-                    <%= link_to icon('fas fa-edit'), edit_course_work_path(course_work), title: 'Edit it', class: 'btn btn-icon btn-sm btn-warning mr-1' %>
-                    <%= link_to icon('fas fa-trash'), course_work, title: 'Destroy it', class: 'btn btn-icon btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?', remote: true } %>
+                    <%= link_to icon('far fa-eye'), course_work, title: 'Show it', class: 'btn btn-icon btn-sm btn-info mr-1' %>
+                    <%= link_to icon('far fa-edit'), edit_course_work_path(course_work), title: 'Edit it', class: 'btn btn-icon btn-sm btn-warning mr-1' %>
+                    <%= link_to icon('far fa-trash'), course_work, title: 'Destroy it', class: 'btn btn-icon btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?', remote: true } %>
                   </td>
                 </tr>
               <% end %>
