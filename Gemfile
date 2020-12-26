@@ -36,6 +36,7 @@ gem 'signet'
 gem 'idy'
 
 gem 'i18n', '~> 1.8', '>= 1.8.5'
+gem 'i18n-js'
 gem 'rails-i18n'
 
 # Use Active Storage variant

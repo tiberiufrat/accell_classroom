@@ -135,6 +135,8 @@ GEM
     httpclient (2.8.3)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    i18n-js (3.8.0)
+      i18n (>= 0.6.6)
     idy (1.1.0)
       activerecord
       hashids
@@ -336,6 +338,7 @@ DEPENDENCIES
   google-api-client
   googleauth
   i18n (~> 1.8, >= 1.8.5)
+  i18n-js
   idy
   jbuilder (~> 2.7)
   listen (~> 3.3)

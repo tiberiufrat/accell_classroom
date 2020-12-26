@@ -1,4 +1,5 @@
 import { onDocumentReady } from "helpers"
+import I18n from "./i18n-js/index.js.erb"
 
 class App {
 
@@ -19,7 +20,7 @@ class App {
   bindFormAjaxError() {
     document.addEventListener("ajax:error", (e) => {
       if (e.target.matches("[data-remote='true']")) {
-        iziToast.error({message: "Whoopps, something went wrong.", title: "Error", position: "topRight"})
+        iziToast.error({message: I18n.t('iziToast.oops_error'), title: I18n.t('iziToast.error'), position: "topRight"})
       }
     })
   }

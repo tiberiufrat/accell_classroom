@@ -17,6 +17,11 @@ ro:
     help: Ajutor
   notices:
     courses_imported: Cursurile v-au fost importate cu succes
+  iziToast:
+    error: Eroare
+    oops_error: Ups, a apărut o eroare
+    success: Succes
+    info: Info
   home:
     index:
       title: Panou de control

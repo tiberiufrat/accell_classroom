@@ -19,7 +19,9 @@ require("bootstrap")
 require("jquery.nicescroll")
 
 import './timeago';
-// require('@nguyenthanh1995/fontawesomepro/js/all')
+
+import I18n from 'i18n-js/index.js.erb'
+console.log(I18n.t('iziToast.error'))
 
 require("select2")
 require("cleave.js")
