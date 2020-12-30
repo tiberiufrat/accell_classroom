@@ -1,47 +1,67 @@
 <nav class="navbar navbar-expand-lg main-navbar">
   <form class="form-inline mr-auto">
     <ul class="navbar-nav mr-3">
-      <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="far fa-bars"></i></a></li>
-      <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="far fa-search"></i></a></li>
+      <li>
+        <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg">
+          <i class="far fa-bars"></i>
+        </a>
+      </li>
+      <li>
+        <a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none">
+          <i class="far fa-search"></i>
+        </a>
+      </li>
     </ul>
     <div class="search-element">
       <input class="form-control" type="search" placeholder="<%= t('general.search') %>" aria-label="<%= t('general.search') %>" data-width="250">
-      <button class="btn" type="submit"><i class="far fa-search"></i></button>
+      <button class="btn" type="submit">
+        <i class="far fa-search"></i>
+      </button>
       <div class="search-backdrop"></div>
       <div class="search-result">
+        <div class="search-item">
+          <a href="#"><i class="far fa-lightbulb"></i> &nbsp; Ne pare rău! Funcția de căutare nu este implementată.</a>
+        </div>
+        <%#
         <div class="search-header">
           Histories
         </div>
         <div class="search-item">
           <a href="#">How to hack NASA using CSS</a>
-          <a href="#" class="search-close"><i class="far fa-times"></i></a>
+          <a href="#" class="search-close">
+            <i class="far fa-times"></i>
+          </a>
         </div>
         <div class="search-item">
           <a href="#">Kodinger.com</a>
-          <a href="#" class="search-close"><i class="far fa-times"></i></a>
+          <a href="#" class="search-close">
+            <i class="far fa-times"></i>
+          </a>
         </div>
         <div class="search-item">
           <a href="#">#Stisla</a>
-          <a href="#" class="search-close"><i class="far fa-times"></i></a>
+          <a href="#" class="search-close">
+            <i class="far fa-times"></i>
+          </a>
         </div>
         <div class="search-header">
           Result
         </div>
         <div class="search-item">
           <a href="#">
-            <%= image_tag('products/product-3-50.png', width: 30, class: 'mr-3 rounded') %>
+            <%= image_tag('products/product-3-50.png', width: 30, class: 'mr-3 rounded') #>
             oPhone S9 Limited Edition
           </a>
         </div>
         <div class="search-item">
           <a href="#">
-            <%= image_tag('products/product-2-50.png', width: 30, class: 'mr-3 rounded') %>
+            <%= image_tag('products/product-2-50.png', width: 30, class: 'mr-3 rounded') #>
             Drone X2 New Gen-7
           </a>
         </div>
         <div class="search-item">
           <a href="#">
-            <%= image_tag('products/product-1-50.png', width: 30, class: 'mr-3 rounded') %>
+            <%= image_tag('products/product-1-50.png', width: 30, class: 'mr-3 rounded') #>
             Headphone Blitz
           </a>
         </div>
@@ -64,11 +84,16 @@
             Create a new Homepage Design
           </a>
         </div>
+        %>
       </div>
     </div>
   </form>
   <ul class="navbar-nav navbar-right">
-    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
+    <%# Messages %>
+    <%# <li class="dropdown dropdown-list-toggle">
+      <a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep">
+        <i class="far fa-envelope"></i>
+      </a>
       <div class="dropdown-menu dropdown-list dropdown-menu-right">
         <div class="dropdown-header">Messages
           <div class="float-right">
@@ -78,7 +103,7 @@
         <div class="dropdown-list-content dropdown-list-message">
           <a href="#" class="dropdown-item dropdown-item-unread">
             <div class="dropdown-item-avatar">
-              <%= image_tag('avatar/avatar-1.png', class: 'rounded-circle') %>
+              <%# image_tag('avatar/avatar-1.png', class: 'rounded-circle') #>
               <div class="is-online"></div>
             </div>
             <div class="dropdown-item-desc">
@@ -89,7 +114,7 @@
           </a>
           <a href="#" class="dropdown-item dropdown-item-unread">
             <div class="dropdown-item-avatar">
-              <%= image_tag('avatar/avatar-2.png', class: 'rounded-circle') %>
+              <%= image_tag('avatar/avatar-2.png', class: 'rounded-circle') #>
             </div>
             <div class="dropdown-item-desc">
               <b>Dedik Sugiharto</b>
@@ -99,7 +124,7 @@
           </a>
           <a href="#" class="dropdown-item dropdown-item-unread">
             <div class="dropdown-item-avatar">
-              <%= image_tag('avatar/avatar-3.png', class: 'rounded-circle') %>
+              <%= image_tag('avatar/avatar-3.png', class: 'rounded-circle') #>
               <div class="is-online"></div>
             </div>
             <div class="dropdown-item-desc">
@@ -110,7 +135,7 @@
           </a>
           <a href="#" class="dropdown-item">
             <div class="dropdown-item-avatar">
-              <%= image_tag('avatar/avatar-4.png', class: 'rounded-circle') %>
+              <%= image_tag('avatar/avatar-4.png', class: 'rounded-circle') #>
             </div>
             <div class="dropdown-item-desc">
               <b>Ardian Rahardiansyah</b>
@@ -120,7 +145,7 @@
           </a>
           <a href="#" class="dropdown-item">
             <div class="dropdown-item-avatar">
-              <%= image_tag('avatar/avatar-4.png', class: 'rounded-circle') %>
+              <%= image_tag('avatar/avatar-4.png', class: 'rounded-circle') #>
             </div>
             <div class="dropdown-item-desc">
               <b>Alfa Zulkarnain</b>
@@ -130,11 +155,17 @@
           </a>
         </div>
         <div class="dropdown-footer text-center">
-          <a href="#">View All <i class="far fa-chevron-right"></i></a>
+          <a href="#">View All
+            <i class="far fa-chevron-right"></i>
+          </a>
         </div>
       </div>
-    </li>
-    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
+    </li> %>
+    <%# Notifications %>
+    <%# <li class="dropdown dropdown-list-toggle">
+      <a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep">
+        <i class="far fa-bell"></i>
+      </a>
       <div class="dropdown-menu dropdown-list dropdown-menu-right">
         <div class="dropdown-header">Notifications
           <div class="float-right">
@@ -156,7 +187,10 @@
               <i class="far fa-user"></i>
             </div>
             <div class="dropdown-item-desc">
-              <b>You</b> and <b>Dedik Sugiharto</b> are now friends
+              <b>You</b>
+              and
+              <b>Dedik Sugiharto</b>
+              are now friends
               <div class="time">10 Hours Ago</div>
             </div>
           </a>
@@ -165,7 +199,11 @@
               <i class="far fa-check"></i>
             </div>
             <div class="dropdown-item-desc">
-              <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
+              <b>Kusnaedi</b>
+              has moved task
+              <b>Fix bug header</b>
+              to
+              <b>Done</b>
               <div class="time">12 Hours Ago</div>
             </div>
           </a>
@@ -189,10 +227,12 @@
           </a>
         </div>
         <div class="dropdown-footer text-center">
-          <a href="#">View All <i class="far fa-chevron-right"></i></a>
+          <a href="#">View All
+            <i class="far fa-chevron-right"></i>
+          </a>
         </div>
       </div>
-    </li>
+    </li> %>
     <% if user_signed_in? %>
       <li class="dropdown">
         <!-- Dropdown toggle -->
@@ -213,7 +253,8 @@
           <%= link_to(icon("far fa-user-circle", " Contul tău"), "#", class: "dropdown-item has-icon") %>
           <%= link_to(icon("far fa-user-edit", " Modifică contul"), edit_registration_path(current_user), class: "dropdown-item has-icon") %>
           <a href="#" class="dropdown-item has-icon">
-            <i class="far fa-cog"></i> Configurări
+            <i class="far fa-cog"></i>
+            Configurări
           </a>
           <div class="dropdown-divider"></div>
           <%= link_to("<i class=\"far fa-sign-out\"></i> Deautentificare".html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item has-icon text-danger") %>
