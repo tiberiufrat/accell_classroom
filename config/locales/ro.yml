@@ -68,6 +68,11 @@ ro:
       add: Generează un raport
     show:
       title: Vizualizare raport
+    new:
+      refresh_courses: Reîncărcați-vă cursurile
+      refresh_courses_description: Pentru ca raportul să reflecte evenimentele actuale de pe Google Classroom, vă rugăm să vă reîncărcați cursurile înainte de a genera un raport nou.
+      last_refresh: Ultima dată ați reîncărcat cursurile
+      ignore_if_refreshed: Ignorați acest mesaj dacă tocmai ce v-ați reîncărcat cursurile.
     notices:
       success_created: Raportul a fost creat cu succes.
       success_updated: Raportul a fost actualizat cu succes.

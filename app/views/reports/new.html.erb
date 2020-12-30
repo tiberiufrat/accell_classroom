@@ -13,6 +13,17 @@
         <h4><%= t('reports.index.add') %></h4>
       </div>
       <div class="card-body">
+        <div class="alert alert-warning alert-has-icon">
+          <div class="alert-icon">
+            <i class="far fa-lightbulb"></i>
+          </div>
+          <div class="alert-body d-block">
+            <div class="alert-title"><%= t('.refresh_courses') %></div>
+            <%= t('.refresh_courses_description') %> <%= t('.last_refresh') %> <%= l(Course.where(user: current_user).pluck(:updated_at).max, format: :long) %><br/>
+            <%= link_to icon('far fa-sync', ' ' + t('courses.index.refresh')), courses_oauth_path, class: 'btn btn-icon icon-left btn-outline-primary mt-2', id: 'refresh-courses' %>
+            <p class="small"><%= t('.ignore_if_refreshed') %></p>
+          </div>
+        </div>
         <%= render 'form', report: @report %>
       </div>
     </div>
