@@ -26,10 +26,16 @@ ro:
     oops_error: Ups, a apărut o eroare
     success: Succes
     info: Info
+  profile:
+    index:
+      title: Profil
+      hello_name: Bună, %{name}!
+      heading_description: Vezi informații despre tine pe această pagină.
+      profile_info: Informații de profil
   home:
     index:
       title: Panou de control
-      welcome: Bine ați venit
+      welcome: Bine ai venit
       unauth_lead: Autentificați-vă acum prin contul de școală Google Workspace pentru a avea acces la cursurile dumneavoastră.
       auth_lead: Accesați resursele din bara laterală sau efectuați o căutare.
       no_courses: Importați-vă cursurile
@@ -147,6 +153,7 @@ ro:
         password: Parola
         email: Adresa de e-mail
         name: Numele
+        classroom_id: Identificator Google Classroom
       report:
         id: Nr. crt.
         date_start: Dată de început

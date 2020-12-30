@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :youtube_videos
   resources :drive_files
   resources :courses
+  get '/profile', to: 'profile#index', as: 'profile'
   # get '/oauth', to: 'oauth#authorize'
   # get '/oauth2callback', to: 'oauth#callback'
   get '/redirect', to: 'oauth#redirect', as: 'redirect'

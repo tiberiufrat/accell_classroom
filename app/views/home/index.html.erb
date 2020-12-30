@@ -36,8 +36,8 @@
         <h2><%= t('.welcome') %>, <%= current_user.name %>!</h2>
         <p class="lead"><%= t('.auth_lead') %></p>
         <div class="mt-4">
-          <%= link_to(icon('far fa-user-circle', ' Vezi contul tău'), "#", class: "btn btn-outline-white btn-lg btn-icon icon-left") %>
-          <%= link_to(icon('far fa-file-chart-line', ' Vezi rapoartele tale'), "#", class: "btn btn-outline-white btn-lg btn-icon icon-left") %>
+          <%= link_to(icon('far fa-user-circle', ' Vezi contul tău'), profile_path, class: "btn btn-outline-white btn-lg btn-icon icon-left") %>
+          <%= link_to(icon('far fa-file-chart-line', ' Vezi rapoartele tale'), reports_path, class: "btn btn-outline-white btn-lg btn-icon icon-left") %>
         </div>
       </div>
     </div>
