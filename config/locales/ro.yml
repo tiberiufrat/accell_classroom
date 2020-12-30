@@ -15,6 +15,7 @@ ro:
     back: Înapoi
     download_pdf: Descarcă în format PDF
     help: Ajutor
+    back_to_root: Înapoi la pagina principală
   notices:
     courses_imported: Cursurile v-au fost importate cu succes
   iziToast:

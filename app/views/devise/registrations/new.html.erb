@@ -1,29 +1,30 @@
-<h2>Sign up</h2>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+      <div class="login-brand">
+        <%= image_tag 'stisla-fill.svg', alt: 'logo', width: '100', class: 'shadow-light rounded-circle' %>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="card card-primary">
+        <div class="card-header">
+          <h4><%= t 'general.log_in' %></h4>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <div class="card-body">
+          <div class="text-center mb-3">
+            <div class="text-job text-muted"><%= t 'general.log_in_google' %></div>
+          </div>
+          <div class="text-center">
+            <%= link_to icon("fab fa-google", " " + t('general.log_in_google')), omniauth_authorize_path(:user, :google_oauth2), class: "btn btn-light btn-icon icon-left" %>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5 text-muted text-center">
+        <%= link_to t('general.back_to_root'), root_path %>
+      </div>
+      <div class="simple-footer">
+        Toate drepturile rezervate © Accell <%= DateTime.now.year %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
