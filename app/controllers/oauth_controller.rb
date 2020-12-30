@@ -108,7 +108,7 @@ class OauthController < ApplicationController
       end
     end
     redirect_to courses_path, notice: t('notices.courses_imported')
-  rescue Google::Apis::AuthorizationError
+  rescue Google::Apis::AuthorizationError, Signet::AuthorizationError
     begin
       response = client.refresh!
 
