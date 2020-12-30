@@ -55,6 +55,7 @@
 
 <script>
   $('#refresh-courses').click(() => {
+    $('#refresh-courses').addClass('btn-progress')
     Swal.fire({
       title: '<%= t '.refreshing' %>',
       html: '<%= t('.refreshing_message') %><br/><strong><%= t('.dont_close_tab') %></strong><br/><%= t('.please_wait') %>',

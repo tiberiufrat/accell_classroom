@@ -30,6 +30,12 @@
   </div>
 </section>
 
+<script>
+  $('#refresh-courses').click(() => {
+    $('#refresh-courses').addClass('btn-progress')
+  })
+</script>
+
 <%= link_to icon('far fa-arrow-left', t('general.back')), reports_path, class: 'btn btn-icon icon-left btn-secondary d-mobile-none' %>
 
 <% content_for(:page_title, t('reports.index.add')) %>
