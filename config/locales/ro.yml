@@ -16,6 +16,8 @@ ro:
     download_pdf: Descarcă în format PDF
     help: Ajutor
     back_to_root: Înapoi la pagina principală
+    classroom_reports: Rapoarte Classroom
+    about_app: Despre aplicație
   notices:
     courses_imported: Cursurile v-au fost importate cu succes
   iziToast:
@@ -34,6 +36,12 @@ ro:
       total_activities: Activități totale
       reports_generated: Rapoarte generate
       activities_monthly: Activități luna aceasta
+    about:
+      title: Despre aplicație
+      app_name: Accell – Rapoarte pentru Google Classroom
+      copyright: Toate drepturile rezervate. © 2020 Tiberiu Frățilă
+      contact: Contact
+
   courses:
     index:
       title: Lista cursurilor
