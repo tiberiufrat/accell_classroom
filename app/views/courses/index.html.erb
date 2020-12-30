@@ -56,8 +56,8 @@
 <script>
   $('#refresh-courses').click(() => {
     Swal.fire({
-      title: 'Se reîncarcă...',
-      text: 'Reîncărcarea va dura câteva secunde. Vă rugăm să așteptați...',
+      title: '<%= t '.refreshing' %>',
+      html: '<%= t('.refreshing_message') %><br/><strong><%= t('.dont_close_tab') %></strong><br/><%= t('.please_wait') %>',
       icon: 'info'
     })
     Swal.showLoading()

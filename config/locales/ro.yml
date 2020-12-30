@@ -49,6 +49,10 @@ ro:
       add: Adaugă un curs
       refresh: Reîncarcă cursurile
       view_in_classroom: Accesează pagina cursului pe Google Classroom
+      refreshing: Se reîncarcă cursurile...
+      refreshing_message: Reîncărcarea poate dura până la 5 minute. S-ar putea să fie nevoie să vă reconectați la Google.
+      dont_close_tab: Nu închideți fila.
+      please_wait: Vă rugăm să așteptați...
     show:
       title: Vizualizare curs
     status:
