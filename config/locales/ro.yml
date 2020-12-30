@@ -3,6 +3,7 @@ ro:
     search: Caută
     log_in: Autentificare
     log_in_google: Autentificare cu Google
+    log_in_to_continue: Autentificați-vă pentru a continua
     export_data: Exportă datele
     print_page: Tipărește pagina
     go_to: Accesează
@@ -29,7 +30,7 @@ ro:
     index:
       title: Panou de control
       welcome: Bine ați venit
-      unauth_lead: Autentificați-vă acum pentru a avea acces la cursurile dumneavoastră.
+      unauth_lead: Autentificați-vă acum prin contul de școală Google Workspace pentru a avea acces la cursurile dumneavoastră.
       auth_lead: Accesați resursele din bara laterală sau efectuați o căutare.
       no_courses: Importați-vă cursurile
       unimported_lead: Pentru a vă finaliza înregistrarea, vă rugăm să vă importați cursurile din Google Classroom apăsând butonul de mai jos.
