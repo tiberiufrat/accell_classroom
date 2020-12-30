@@ -1,12 +1,13 @@
 <div class="main-sidebar sidebar-style-2">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <%= link_to 'Stisla', root_path  %>
+      <%= link_to 'Accell', root_path, style: 'text-transform: none' %>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
-      <%= link_to 'St', root_path %>
+      <%= link_to 'a', root_path %>
     </div>
     <ul class="sidebar-menu" data-controller="sidebar">
+      <li class="menu-header"><%= t 'general.classroom_reports' %></li>
       <li class="<%= active_nav_item('home', 'index') %>">
         <%= link_to root_path, class: "nav-link" do %>
           <i class="far fa-columns"></i> <span><%= t('home.index.title') %></span>
@@ -31,14 +32,19 @@
         <% end %>
       </li>
 
-      <li class="menu-header">Controllers</li>
-      <%= render 'shared/sidebar_dropdown', title: 'Resources', icon: 'far fa-file-alt' do %>
+      <li class="menu-header"><%= t 'general.about_app' %></li>
+      <li class="<%= active_nav_item('home', 'about') %>">
+        <%= link_to about_path, class: "nav-link" do %>
+          <i class="far fa-info"></i> <span><%= t('general.about_app') %></span>
+        <% end %>
+      </li>
+      <%# render 'shared/sidebar_dropdown', title: 'Resources', icon: 'far fa-file-alt' do %>
       <!--
         <li class="<#= active_nav_item('customers', crud_actions) #>">
           <#= link_to 'Customers', customers_path, class: 'nav-link' #>
         </li>
       -->
-      <% end %>
+      <%# end %>
     </ul>
   </aside>
 </div>
